@@ -1,0 +1,212 @@
+{
+  "session_id": "0fb65b3203",
+  "player_handle": "Hisham",
+  "team_name": "Neon Rift",
+  "title": "valorant",
+  "title_label": "Valorant",
+  "role": "igl",
+  "rank_tier": "ascendant",
+  "focus_mode": "tournament",
+  "series_type": "Bo3",
+  "opponent_name": "Nova Reclaim",
+  "current_patch": "Patch 11.03",
+  "meta_snapshot": [
+    {
+      "name": "Double-initiate pressure",
+      "weight": 93,
+      "reason": "Early info tools are winning map control fights."
+    },
+    {
+      "name": "Fast B contact",
+      "weight": 88,
+      "reason": "Teams are collapsing sites before second-rotator timing."
+    },
+    {
+      "name": "Late lurk punish",
+      "weight": 82,
+      "reason": "Aggressive anchors are overextending for info."
+    }
+  ],
+  "map_pool": [
+    {
+      "name": "Ascent",
+      "comfort": 92,
+      "enemy_threat": 76,
+      "plan": "Punish mid contest with layered utility."
+    },
+    {
+      "name": "Lotus",
+      "comfort": 84,
+      "enemy_threat": 83,
+      "plan": "Attack rotating sites with late fake pressure."
+    },
+    {
+      "name": "Sunset",
+      "comfort": 74,
+      "enemy_threat": 89,
+      "plan": "Avoid dry mid pivots against operator setups."
+    }
+  ],
+  "signature_pool": [
+    {
+      "name": "Sova",
+      "fit": "Best for info-led pace changes."
+    },
+    {
+      "name": "Omen",
+      "fit": "Lets the IGL hide timing shifts."
+    },
+    {
+      "name": "Raze",
+      "fit": "Converts early space into explosive site hits."
+    }
+  ],
+  "opponent_profile": {
+    "tempo": "fast-openings, slow-closes",
+    "style": "They love forcing defenders to burn utility early, then pivoting late.",
+    "tendencies": [
+      "Hit B quickly after a timeout to reset momentum.",
+      "Over-fight for orb control when their entry has confidence.",
+      "Save weak-buy rounds if the opener fails."
+    ]
+  },
+  "practice_modules": [
+    {
+      "name": "Exec layering",
+      "duration": "18 min",
+      "goal": "Stack drone, smoke, and satchel timing cleanly."
+    },
+    {
+      "name": "Retake chain",
+      "duration": "14 min",
+      "goal": "Tighten second-wave utility after first contact."
+    },
+    {
+      "name": "Clutch reset",
+      "duration": "12 min",
+      "goal": "Rebuild comm clarity after lost anti-ecos."
+    }
+  ],
+  "pressure_profile": {
+    "early": 86,
+    "mid": 73,
+    "clutch": 79
+  },
+  "latest_reports": {
+    "meta": {
+      "priority": "balanced",
+      "top_signals": [
+        {
+          "name": "Double-initiate pressure",
+          "weight": 93,
+          "reason": "Early info tools are winning map control fights.",
+          "leverage": "Use Sova style setups to exploit double-initiate pressure."
+        },
+        {
+          "name": "Fast B contact",
+          "weight": 88,
+          "reason": "Teams are collapsing sites before second-rotator timing.",
+          "leverage": "Use Sova style setups to exploit fast b contact."
+        },
+        {
+          "name": "Late lurk punish",
+          "weight": 82,
+          "reason": "Aggressive anchors are overextending for info.",
+          "leverage": "Use Sova style setups to exploit late lurk punish."
+        }
+      ],
+      "power_play": "Lean into Sova as the confidence pick if the opener feels stable.",
+      "trap_to_avoid": "Do not copy the most popular fast look without a reset branch behind it.",
+      "pressure_meter": {
+        "early": 86,
+        "mid": 73,
+        "clutch": 79
+      }
+    },
+    "scout": {
+      "emphasis": "default",
+      "tempo_profile": "fast-openings, slow-closes",
+      "style_summary": "They love forcing defenders to burn utility early, then pivoting late.",
+      "punish_windows": [
+        "Hit B quickly after a timeout to reset momentum.",
+        "Over-fight for orb control when their entry has confidence."
+      ],
+      "best_target_map": "Ascent",
+      "danger_map": "Sunset",
+      "map_plan": "Punish mid contest with layered utility.",
+      "mental_note": "If they lose two clean rounds in a row, their pacing usually becomes predictable."
+    },
+    "draft": {
+      "style": "balanced",
+      "ban_priority": [
+        "Sunset",
+        "Breach denial",
+        "Operator comfort angles"
+      ],
+      "lock_priority": [
+        "Sova",
+        "Omen"
+      ],
+      "pivot_call": "If the opener stalls, pivot into late mid split pressure instead of forcing contact.",
+      "key_map": "Ascent",
+      "signature_pick": "Sova"
+    },
+    "training": {
+      "intensity": "balanced",
+      "focus_lanes": [
+        {
+          "name": "Exec layering",
+          "duration": "18 min",
+          "goal": "Stack drone, smoke, and satchel timing cleanly."
+        },
+        {
+          "name": "Retake chain",
+          "duration": "14 min",
+          "goal": "Tighten second-wave utility after first contact."
+        },
+        {
+          "name": "Clutch reset",
+          "duration": "12 min",
+          "goal": "Rebuild comm clarity after lost anti-ecos."
+        }
+      ],
+      "warmup_call": "Start with one confidence rep, then move immediately into the hardest scenario.",
+      "vod_assignment": "Review the last lost mid-game sequence and identify the first communication drop.",
+      "mechs_note": "Do not overload mechanics work if the bigger issue is timing discipline."
+    },
+    "mindset": {
+      "pressure": "standard",
+      "opening_comms": "First thirty seconds: short calls only, no second-guessing the opener.",
+      "between_round_reset": "One breath, one fact, one next call.",
+      "timeout_script": "Name the problem, choose one adjustment, commit to it with no debate.",
+      "clutch_cue": "Play the numbers, not the noise.",
+      "anti_tilt_rule": "No emotional review mid-series. Save blame for the VOD room."
+    }
+  },
+  "latest_plan": {
+    "headline": "Exploit Sova's Tempo Disruption on Ascent with Layered Utility",
+    "win_condition": "Force Nova Reclaim into slow-closes by collapsing their early utility burns and punishing late overextensions with Sova's precision.",
+    "danger_zone": "Avoid dry mid pivots on Sunset and prevent operator comfort angles by prioritizing Sova's info-led setups.",
+    "tempo_call": "Fast-openings with Sova's double-initiate pressure \u2192 mid-game layered utility \u2192 clutch reset with Omen's split-push.",
+    "confidence": 1.0,
+    "key_map": "Ascent",
+    "signature_pick": "Sova",
+    "bench_note": "Ban Sova first to neutralize their tempo disruption, then prioritize Sunset and Breach denial in the ban phase.",
+    "meta_anchor": "Double-initiate pressure",
+    "generated_at": "2026-03-28T05:54:32Z"
+  },
+  "coach_log": [
+    {
+      "actor": "Hisham",
+      "content": "Prepare my full match plan for the next series.",
+      "timestamp": "2026-03-28T05:58:50Z"
+    },
+    {
+      "actor": "Arena Host",
+      "content": "**Exploit Sova's Tempo Disruption on Ascent with Layered Utility**  \n\n- **Meta Pulse**  \n  - **Double-initiate pressure** dominates early map control; prioritize Sova\u2019s setups to disrupt enemy rotations and secure info tools.  \n  - **Fast B contact** is a key weakness\u2014collapse sites before second-rotator timing to force aggressive plays into predictable resets.  \n  - **Late lurk punish** opportunities arise from overextending anchors; use Sova\u2019s precision to capitalize on these overextensions.  \n\n- **Opponent Read**  \n  - They force defenders to burn utility early, then pivot late\u2014target their reliance on early buys with Sova\u2019s tempo disruption.  \n  - **Hit B immediately post-timeout** to reset momentum and exploit their reliance on early utility burns.  \n  - **Over-fight orb control** during confident entries to create chaos and force reactive plays.  \n  - **Best target map**: Ascent (punish mid contest with layered utility).  \n  - **Danger map**: Sunset (avoid dry mid pivots against operator setups).  \n\n- **Draft Edge**  \n  - **Ban Sova first** to neutralize their tempo disruption, then prioritize *Sunset* and *Breach denial* in the ban phase.  \n  - **Lock Omen** as the secondary anchor to exploit late mid split pressure, leveraging *Ascent*\u2019s mobility.  \n  - **Fallback pivot**: If the opener stalls, transition to *late mid split pressure* with Omen\u2019s split-push or Sova\u2019s sniping (if unbanned).  \n\n- **Practice Circuit**  \n  - **Exec layering**: Stack drone, smoke, and satchel timing cleanly (18 min).  \n  - **Retake chain**: Tighten second-wave utility after first contact (14 min).  \n  - **Clutch reset**: Rebuild comm clarity after lost anti-ecos (12 min).  \n  - **Warmup**: Start with one confidence rep, then move to the hardest scenario.  \n  - **VOD review**: Analyze the last lost mid-game sequence to identify the first communication drop.  \n\n- **Mental Reset**  \n  - **First 30 seconds**: Short, precise calls\u2014no overthinking. Trust the opener\u2019s rhythm.  \n  - **Between rounds**: Breathe. Recall one key fact. Execute one clear next call.  \n  - **Timeouts**: Name the issue. Pick one fix. Commit without debate. Adjust, then move.  \n  - **Clutch cue**: Play the numbers, not the noise.  \n  - **Anti-tilt rule**: No emotional review mid-series. Save blame for the VOD room.  \n\n- **Head Coach Call**  \n  - **Win condition**: Force Nova Reclaim into slow-closes by collapsing their early utility burns and punishing late overextensions with Sova\u2019s precision.  \n  - **Danger zone**: Avoid dry mid pivots on Sunset and prevent operator comfort angles with Sova\u2019s info-led setups.  \n  - **Tempo call**: Fast-openings with Sova\u2019s double-initiate pressure \u2192 mid-game layered utility \u2192 clutch reset with Omen\u2019s split-push.  \n  - **Key map**: Ascent. **Signature pick**: Sova. **Bench note**: Ban Sova first, then prioritize Sunset and Breach denial.  \n\nThis plan is built on disrupting their tempo, exploiting their overextension, and maintaining comms clarity. Stay sharp, trust the process, and let the numbers guide your calls\u2014this series is yours to take.",
+      "timestamp": "2026-03-28T05:58:50Z"
+    }
+  ],
+  "created_at": "2026-03-28T05:44:24Z",
+  "updated_at": "2026-03-28T05:58:50Z"
+}
