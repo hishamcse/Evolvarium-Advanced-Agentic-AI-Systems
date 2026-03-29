@@ -199,7 +199,7 @@ ollama serve
 ollama pull qwen3:8b
 ```
 
-3. Install dependencies:
+3. Install dependencies (If using uv - skip this):
 
 ```bash
 pip install gradio langgraph langchain-openai python-dotenv
@@ -212,7 +212,7 @@ pip install gradio langgraph langchain-openai python-dotenv
 **Gradio UI:**
 
 ```bash
-python app.py
+uv run app.py
 ```
 
 Opens at `http://localhost:7861`

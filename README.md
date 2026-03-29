@@ -1,6 +1,6 @@
 # Evolvarium Agent Forge - Advanced Agentic AI Systems
  
-A hands-on collection of advanced agentic AI systems — each one a fully self-contained product with a distinct architecture, a custom MCP tool server, persistent memory, and a rich Gradio UI. Built with **LangGraph** and **local Ollama models**. No paid API keys required.
+A hands-on collection of advanced agentic AI systems — each one a fully self-contained product with a distinct architecture, a custom MCP tool server, persistent memory, and a rich Gradio UI. Built with **LangGraph** and **local Ollama models**. No paid API keys required. But these agents will work much better and impressive with paid API keys.
  
 Every agent uses a **different graph topology** — orchestration, plan-then-execute, parallel fan-out, and genetic loops. The repo is designed to be a reference for real-world agentic patterns, not just prompt wrappers.
 
@@ -26,11 +26,9 @@ Parallel Fan-out + Aggregator→  Code Review Arena
 Genetic / Evolutionary Loop  →  Code Mutation Lab
 ```
 
-Each agent uses a **different LangGraph topology** — no two share the same graph structure. This makes the repo a reference for real-world agentic architectures, not just prompt wrappers.
-
 ---
 
-## Gradio UI for Agents
+## Details & UI for Agents
 
 ### Code Review Arena
 
@@ -47,7 +45,7 @@ Each agent uses a **different LangGraph topology** — no two share the same gra
 **Run:**
 ```bash
 cd "Code Review Arena"
-python app.py
+uv run app.py
 ```
 
 → [Full README & architecture](./Code%20Review%20Arena/README.md)
@@ -70,7 +68,7 @@ python app.py
 **Run:**
 ```bash
 cd "Code Mutation Lab"
-python app.py
+uv run app.py
 ```
 
 → [Full README & architecture](./Code%20Mutation%20Lab/README.md)
@@ -94,7 +92,7 @@ python app.py
 **Run:**
 ```bash
 cd "Esports Coach Arena Agent"
-python app.py
+uv run app.py
 ```
 
 → [Full README & architecture](./Esports%20Coach%20Arena%20Agent/README.md)
@@ -118,7 +116,7 @@ python app.py
 **Run:**
 ```bash
 cd "Launchpad Strategist Agent"
-python app.py
+uv run app.py
 ```
 
 → [Full README & architecture](./Launchpad%20Strategist%20Agent/README.md)
@@ -171,7 +169,20 @@ agentarium/
 │   │   └── evaluators/              # performance, readability, simplicity agents
 │   ├── llm/model.py                  # Ollama LLM factory
 │   └── README.md
-│
+|
+|── Crime Scene Investigator/
+|   ├── config.py
+|   ├── state.py
+|   ├── mcp_server.py          # case file storage, evidence tools
+|   ├── agents/
+|   │   ├── prosecutor_agent.py
+|   │   ├── defense_agent.py
+|   │   ├── forensics_agent.py
+|   │   └── judge_agent.py
+|   ├── graph.py               # debate flow + jury vote
+|   ├── app.py                 # noir Gradio UI
+|   └── README.md
+|
 ├── requirements.txt
 └── README.md
 ```

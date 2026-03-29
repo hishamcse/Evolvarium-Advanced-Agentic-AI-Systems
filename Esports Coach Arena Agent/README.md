@@ -166,7 +166,7 @@ ARENA_MAX_RETRIES=2
 ollama pull qwen3:8b
 ```
 
-3. Install dependencies:
+3. Install dependencies (If using uv, skip this):
 
 ```bash
 pip install gradio langgraph langchain-openai mcp python-dotenv
@@ -192,6 +192,11 @@ python app.py
 
 ```bash
 python esports_server.py
+```
+
+OR, if using uv, then replace python with uv run
+```bash
+uv run app.py
 ```
 
 ---

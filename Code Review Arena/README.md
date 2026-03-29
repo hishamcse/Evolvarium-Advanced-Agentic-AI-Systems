@@ -40,7 +40,7 @@ The 4 reviewers are fully independent — they don't need each other's output. L
 ## Setup
 
 ```bash
-# Install dependencies
+# Install dependencies (is using uv, skip this)
 pip install langgraph langchain-openai langchain-core mcp gradio python-dotenv pyflakes
 
 # Configure Ollama
@@ -49,6 +49,8 @@ cp .env.example .env
 
 # Run
 python app.py
+OR
+uv run app.py
 ```
 
 ## .env

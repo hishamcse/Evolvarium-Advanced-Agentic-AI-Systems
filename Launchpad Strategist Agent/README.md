@@ -119,7 +119,7 @@ The UI responds like a launch war room with:
 ollama pull qwen3:8b
 ```
 
-4. Install dependencies if needed:
+4. Install dependencies if needed (if using uv, skip this):
 
 ```bash
 pip install gradio langgraph langchain-openai mcp python-dotenv
@@ -145,6 +145,11 @@ python app.py
 
 ```bash
 python server.py
+```
+
+OR, using uv
+```bash
+uv run app.py
 ```
 
 ---
