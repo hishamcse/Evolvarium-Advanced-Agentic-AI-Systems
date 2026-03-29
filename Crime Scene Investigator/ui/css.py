@@ -235,6 +235,42 @@ footer { display: none !important; }
 .csi-case-title   { color: var(--text); }
 .csi-case-conf    { font-weight: 700; color: var(--amber); }
 
+/* ── load panel ── */
+.csi-load-panel {
+  border-radius: 20px;
+  padding: 20px 24px;
+  background: rgba(212,168,67,0.05);
+  border: 1px solid rgba(212,168,67,0.20);
+  margin-bottom: 2px;
+}
+.csi-load-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-family: 'Inter', system-ui, sans-serif;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(212,168,67,0.12);
+  border: 1px solid rgba(212,168,67,0.28);
+  color: var(--amber);
+  margin-bottom: 12px;
+}
+.csi-loaded-banner {
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(58,138,74,0.10);
+  border: 1px solid rgba(58,138,74,0.25);
+  color: #5aba6a;
+  font-size: 12px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
 /* ── forensics card ── */
 .csi-forensics {
   border-radius: 18px;
@@ -273,6 +309,22 @@ footer { display: none !important; }
   color: #f0d090 !important;
   text-transform: uppercase !important;
   font-size: 12px !important;
+}
+.gr-button-secondary {
+  background: rgba(212,168,67,0.08) !important;
+  border: 1px solid rgba(212,168,67,0.28) !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  letter-spacing: 0.08em !important;
+  padding: 12px 28px !important;
+  color: var(--amber) !important;
+  text-transform: uppercase !important;
+  font-size: 12px !important;
+}
+.gr-button-secondary:hover {
+  background: rgba(212,168,67,0.15) !important;
+  border-color: rgba(212,168,67,0.45) !important;
 }
 textarea, input[type=text] {
   background: rgba(18,14,22,0.95) !important;

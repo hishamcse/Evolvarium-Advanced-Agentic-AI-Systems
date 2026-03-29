@@ -85,6 +85,8 @@ def _md_brief(text: str) -> str:
     return "".join(chunks)
 
 
+# ── render functions ───────────────────────────────────────────────────────────
+
 def _render_verdict(result: dict) -> str:
     verdict     = result.get("verdict", "")
     confidence  = float(result.get("confidence", 0))
@@ -194,6 +196,8 @@ def _render_history() -> str:
 </div>"""
 
 
+# ── run handler ────────────────────────────────────────────────────────────────
+
 def run_investigation(title: str, brief: str, evidence: str):
     empty = gr.update(value="")
     if not brief.strip() or not evidence.strip():
@@ -215,12 +219,63 @@ def run_investigation(title: str, brief: str, evidence: str):
     )
 
 
+# ── load handler ──────────────────────────────────────────────────────────────
+
+def _case_choices() -> list[str]:
+    """Return list of 'ID — Title' strings for the dropdown."""
+    cases = engine.list_cases()
+    return [f"{c['case_id']} — {c.get('case_title','Untitled')}" for c in cases] or ["No saved cases"]
+
+
+def load_saved_case(choice: str):
+    """Load all panels from a persisted case — zero agent calls."""
+    empty = gr.update(value="")
+    if not choice or "—" not in choice:
+        return empty, empty, empty, empty, empty, empty, empty, gr.update(value=_render_history())
+
+    case_id = choice.split("—")[0].strip()
+    result  = engine.load_case(case_id)
+
+    if not result:
+        err = "<div class='csi-panel' style='color:var(--red-hi);padding:20px;font-family:Inter,sans-serif;text-align:center'>Case file not found.</div>"
+        return empty, empty, empty, gr.update(value=err), empty, empty, empty, gr.update(value=_render_history())
+
+    evidence = result.get("evidence_list", "")
+    loaded_banner = f"""<div class='csi-loaded-banner'>
+      Case #{case_id} loaded from archive — no agents re-run
+    </div>"""
+
+    return (
+        gr.update(value=result.get("case_title", "Untitled Case")),
+        gr.update(value=result.get("case_brief", "")),
+        gr.update(value=result.get("evidence_list", "")),
+        gr.update(value=loaded_banner + _render_verdict(result)),
+        gr.update(value=_render_evidence_board(result.get("evidence_list", ""))),
+        gr.update(value=_render_debate(result)),
+        gr.update(value=_render_forensics(result)),
+        gr.update(value=_render_history()),
+    )
+
+
 # ── build UI ───────────────────────────────────────────────────────────────────
 
 def build_ui():
     with gr.Blocks(css=APP_CSS, title="Crime Scene Investigator") as demo:
         with gr.Column(elem_classes="csi-shell"):
             gr.HTML(HERO_HTML)
+
+            # ── Load saved case ──
+            with gr.Column(elem_classes="csi-load-panel"):
+                gr.HTML("<div class='csi-load-badge'>Case archive — load without re-running</div>")
+                case_selector = gr.Dropdown(
+                    label="Select a saved case",
+                    choices=_case_choices(),
+                    value=None,
+                    interactive=True,
+                )
+                with gr.Row():
+                    refresh_dropdown_btn = gr.Button("Refresh list", variant="secondary", scale=1)
+                    load_btn = gr.Button("Load case  ▶", variant="primary", scale=1)
 
             # ── Input section ──
             with gr.Row(equal_height=False):
@@ -271,6 +326,19 @@ def build_ui():
             inputs=[case_title, case_brief, evidence_input],
             outputs=[verdict_panel, evidence_panel, debate_panel,
                      forensics_panel, history_panel],
+        )
+
+        load_btn.click(
+            fn=load_saved_case,
+            inputs=[case_selector],
+            outputs=[case_title, case_brief, evidence_input,
+                     verdict_panel, evidence_panel, debate_panel,
+                     forensics_panel, history_panel],
+        )
+
+        refresh_dropdown_btn.click(
+            fn=_case_choices,
+            outputs=[case_selector],
         )
 
     return demo

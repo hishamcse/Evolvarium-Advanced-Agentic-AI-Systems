@@ -44,8 +44,11 @@ def judge_node(state: CaseState) -> dict:
 
 
 def persist_node(state: CaseState) -> dict:
+    # Save full agent outputs so cases can be completely reloaded without re-running
     data = {k: state.get(k) for k in [
-        "case_id", "case_title", "verdict", "confidence",
+        "case_id", "case_title", "case_brief", "evidence_list",
+        "forensics_report", "prosecution_argument", "defense_argument",
+        "judge_reasoning", "verdict", "confidence",
         "final_summary", "key_evidence", "reasonable_doubts",
     ]}
     path = MEMORY_DIR / f"{state['case_id']}.json"
@@ -117,3 +120,10 @@ class CSIEngine:
             except Exception:
                 pass
         return cases
+
+    def load_case(self, case_id: str) -> dict | None:
+        """Load a fully persisted case by ID — returns all agent outputs."""
+        path = MEMORY_DIR / f"{case_id}.json"
+        if path.exists():
+            return json.loads(path.read_text())
+        return None

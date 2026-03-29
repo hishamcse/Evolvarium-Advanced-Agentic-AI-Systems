@@ -205,3 +205,12 @@ Opens at `http://localhost:7862`
 
 ## Gradio UI
 
+<img src="./images/crime 1.png" width="100%" alt="crime 1">
+
+<img src="./images/crime 2.png" width="100%" alt="crime 2">
+
+<img src="./images/crime 3.png" width="100%" alt="crime 3">
+
+<img src="./images/crime 4.png" width="100%" alt="crime 4">
+
+<img src="./images/crime 5.png" width="100%" alt="crime 5">

@@ -115,6 +115,8 @@ uv run app.py
 
 <img src="./Crime Scene Investigator/images/crime 4.png" width="100%" alt="case file" />
 
+<img src="./Crime Scene Investigator/images/crime 5.png" width="100%" alt="case file" />
+
  
 **Run:**
 ```bash
