@@ -32,28 +32,6 @@ Adversarial Debate + Jury Vote →  Crime Scene Investigator
 
 ## Details & UI for Agents
 
-### Code Review Arena
-
-> **Architecture:** Parallel Fan-out + Aggregator — 4 reviewer agents run simultaneously via LangGraph's parallel node execution, cutting review time ~4× vs sequential. An aggregator merges all outputs into one weighted report.
-
-<img src="./Code Review Arena/images/code_review_arena_architecture.svg" width="100%" alt="architecture" />
-
-<img src="./Code Review Arena/images/code review 1.png" width="100%" alt="review 1" />
-
-<img src="./Code Review Arena/images/code review 2.png" width="100%" alt="review 2" />
-
-<img src="./Code Review Arena/images/code review 3.png" width="100%" alt="review 3" />
-
-**Run:**
-```bash
-cd "Code Review Arena"
-uv run app.py
-```
-
-→ [Full README & architecture](./Code%20Review%20Arena/README.md)
-
----
-
 ### Code Mutation Lab
 
 > **Architecture:** Genetic / Evolutionary Loop — code evolves across generations. Each generation spawns 3 competing variants using distinct mutation strategies, evaluates them in parallel across 3 fitness dimensions, selects the fittest, and uses it as the seed for the next generation.
@@ -74,6 +52,28 @@ uv run app.py
 ```
 
 → [Full README & architecture](./Code%20Mutation%20Lab/README.md)
+
+---
+
+### Code Review Arena
+
+> **Architecture:** Parallel Fan-out + Aggregator — 4 reviewer agents run simultaneously via LangGraph's parallel node execution, cutting review time ~4× vs sequential. An aggregator merges all outputs into one weighted report.
+
+<img src="./Code Review Arena/images/code_review_arena_architecture.svg" width="70%" alt="architecture" />
+
+<img src="./Code Review Arena/images/code review 1.png" width="100%" alt="review 1" />
+
+<img src="./Code Review Arena/images/code review 2.png" width="100%" alt="review 2" />
+
+<img src="./Code Review Arena/images/code review 3.png" width="100%" alt="review 3" />
+
+**Run:**
+```bash
+cd "Code Review Arena"
+uv run app.py
+```
+
+→ [Full README & architecture](./Code%20Review%20Arena/README.md)
 
 ---
 
@@ -105,16 +105,12 @@ uv run app.py
  
 > **Architecture:** Adversarial Debate + Jury Vote — four agents argue a criminal case from opposing positions. A Forensics agent analyses evidence with zero bias. A Prosecutor builds the case for guilt. A Defense agent reads the prosecution's argument and systematically dismantles it. A Judge weighs both sides independently and returns a structured JSON verdict with a confidence score, key evidence, and reasonable doubts.
  
-<img src="./Crime Scene Investigator/images/csi_architecture.svg" width="100%" alt="arch" />
+<img src="./Crime Scene Investigator/images/csi_architecture.svg" width="70%" alt="arch" />
 
 <img src="./Crime Scene Investigator/images/crime 1.png" width="100%" alt="case file" />
-
 <img src="./Crime Scene Investigator/images/crime 2.png" width="100%" alt="case file" />
-
 <img src="./Crime Scene Investigator/images/crime 3.png" width="100%" alt="case file" />
-
 <img src="./Crime Scene Investigator/images/crime 4.png" width="100%" alt="case file" />
-
 <img src="./Crime Scene Investigator/images/crime 5.png" width="100%" alt="case file" />
 
  
