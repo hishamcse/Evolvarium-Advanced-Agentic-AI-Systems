@@ -59,7 +59,7 @@ uv run app.py
 
 > **Architecture:** Parallel Fan-out + Aggregator — 4 reviewer agents run simultaneously via LangGraph's parallel node execution, cutting review time ~4× vs sequential. An aggregator merges all outputs into one weighted report.
 
-<img src="./Code Review Arena/images/code_review_arena_architecture.svg" width="70%" alt="architecture" />
+<p align="center"><img src="./Code Review Arena/images/code_review_arena_architecture.svg" width="70%" alt="architecture" /> </p>
 
 <img src="./Code Review Arena/images/code review 1.png" width="100%" alt="review 1" />
 
@@ -105,7 +105,7 @@ uv run app.py
  
 > **Architecture:** Adversarial Debate + Jury Vote — four agents argue a criminal case from opposing positions. A Forensics agent analyses evidence with zero bias. A Prosecutor builds the case for guilt. A Defense agent reads the prosecution's argument and systematically dismantles it. A Judge weighs both sides independently and returns a structured JSON verdict with a confidence score, key evidence, and reasonable doubts.
  
-<img src="./Crime Scene Investigator/images/csi_architecture.svg" width="70%" alt="arch" />
+<p align="center"><img src="./Crime Scene Investigator/images/csi_architecture.svg" width="70%" alt="arch" /></p>
 
 <img src="./Crime Scene Investigator/images/crime 1.png" width="100%" alt="case file" />
 <img src="./Crime Scene Investigator/images/crime 2.png" width="100%" alt="case file" />
