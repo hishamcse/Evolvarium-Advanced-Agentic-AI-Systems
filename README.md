@@ -1,8 +1,8 @@
-# Evolvarium Agent Forge - Advanced Agentic AI Systems
+# Evolvarium Agent Forge — Advanced Agentic AI Systems
  
-A hands-on collection of advanced agentic AI systems — each one a fully self-contained product with a distinct architecture, a custom MCP tool server, persistent memory, and a rich Gradio UI. Built with **LangGraph** and **local Ollama models**. No paid API keys required. But these agents will work much better and impressive with paid API keys.
+A hands-on collection of advanced agentic AI systems — each one a fully self-contained product with a distinct architecture, a custom MCP tool server, persistent memory, and a rich Gradio UI. Built with **LangGraph** and **local Ollama models**. No paid API keys required — though agents will produce richer, more nuanced output with paid models.
  
-Every agent uses a **different graph topology** — orchestration, plan-then-execute, parallel fan-out, and genetic loops. The repo is designed to be a reference for real-world agentic patterns, not just prompt wrappers.
+Every agent uses a **different graph topology** — orchestration, plan-then-execute, parallel fan-out, genetic loops, and adversarial debate. The repo is designed to be a reference for real-world agentic patterns, not just prompt wrappers.
 
 ---
 
@@ -11,8 +11,9 @@ Every agent uses a **different graph topology** — orchestration, plan-then-exe
 | Agent | Architecture | Tech Stack | What It Does |
 |---|---|---|---|
 | [Code Mutation Lab](#code-mutation-lab) | Genetic / Evolutionary Loop | LangGraph · Ollama · Gradio | Code enters as a seed. Each generation, 3 strategy-driven variants are mutated, evaluated across performance, readability, and simplicity, and only the fittest survives to seed the next generation. A full fitness timeline and variant explorer track every decision. |
-| [Esports Coach Arena](#esports-coach-arena-agent) | Orchestration / Supervisor | LangGraph · MCP (custom esports server) · Ollama · Gradio · JSON persistence | A persistent multi-agent esports war room. A head coach orchestrates 5 specialist agents — meta analyst, opponent scout, draft coach, mechanics coach, and mindset coach — before locking one decisive match plan. Supports Valorant, League of Legends, and CS2. |
 | [Code Review Arena](#code-review-arena) | Parallel Fan-out + Aggregator | LangGraph · MCP (lint/AST server) · Ollama · Gradio · JSON persistence | 4 specialist reviewer agents fire in parallel — security, performance, logic, and style — then an aggregator merges all findings into a weighted score, severity-classified issue list, and executive summary. |
+| [Esports Coach Arena](#esports-coach-arena-agent) | Orchestration / Supervisor | LangGraph · MCP (custom esports server) · Ollama · Gradio · JSON persistence | A persistent multi-agent esports war room. A head coach orchestrates 5 specialist agents — meta analyst, opponent scout, draft coach, mechanics coach, and mindset coach — before locking one decisive match plan. Supports Valorant, League of Legends, and CS2. |
+| [Crime Scene Investigator](#crime-scene-investigator) | Adversarial Debate + Jury Vote | LangGraph · MCP (evidence + case tools server) · Ollama · Gradio · JSON persistence | Four AI agents enter the courtroom. A Forensics agent analyses evidence cold. A Prosecutor builds the case for guilt. A Defense agent dismantles it. A Judge weighs both sides and delivers a structured verdict with a confidence score. Noir-style UI with evidence board, debate panel, and case archive. |
 | [Launchpad Strategist](#launchpad-strategist-agent) | Plan-then-Execute | LangGraph · MCP (custom launch server) · Ollama · Gradio · JSON persistence | A startup launch copilot. A planner agent sequences execution, then specialist agents handle market mapping, ICP definition, messaging, and timeline. A critic validates the final brief before it is saved as a persistent launch board. |
 
 ---
@@ -20,10 +21,11 @@ Every agent uses a **different graph topology** — orchestration, plan-then-exe
 ## Architecture patterns used
 
 ```
-Orchestration / Supervisor   →  Esports Coach Arena
-Plan-then-Execute            →  Launchpad Strategist
-Parallel Fan-out + Aggregator→  Code Review Arena
-Genetic / Evolutionary Loop  →  Code Mutation Lab
+Parallel Fan-out + Aggregator  →  Code Review Arena
+Genetic / Evolutionary Loop    →  Code Mutation Lab
+Orchestration / Supervisor     →  Esports Coach Arena
+Plan-then-Execute              →  Launchpad Strategist
+Adversarial Debate + Jury Vote →  Crime Scene Investigator
 ```
 
 ---
@@ -99,6 +101,31 @@ uv run app.py
 
 ---
 
+### Crime Scene Investigator
+ 
+> **Architecture:** Adversarial Debate + Jury Vote — four agents argue a criminal case from opposing positions. A Forensics agent analyses evidence with zero bias. A Prosecutor builds the case for guilt. A Defense agent reads the prosecution's argument and systematically dismantles it. A Judge weighs both sides independently and returns a structured JSON verdict with a confidence score, key evidence, and reasonable doubts.
+ 
+<img src="./Crime Scene Investigator/images/csi_architecture.svg" width="100%" alt="arch" />
+
+<img src="./Crime Scene Investigator/images/crime 1.png" width="100%" alt="case file" />
+
+<img src="./Crime Scene Investigator/images/crime 2.png" width="100%" alt="case file" />
+
+<img src="./Crime Scene Investigator/images/crime 3.png" width="100%" alt="case file" />
+
+<img src="./Crime Scene Investigator/images/crime 4.png" width="100%" alt="case file" />
+
+ 
+**Run:**
+```bash
+cd "Crime Scene Investigator"
+uv run app.py
+```
+ 
+→ [Full README & architecture](./Crime%20Scene%20Investigator/README.md)
+ 
+---
+
 ### Launchpad Strategist Agent
 
 > **Architecture:** Plan-then-Execute — a planner agent decides the execution sequence, then individual specialist executors carry out each phase before a critic validates the output.
@@ -126,7 +153,7 @@ uv run app.py
 ## Project structure
 
 ```
-agentarium/
+evolvarium-agent-forge/
 ├── Esports Coach Arena Agent/
 │   ├── app.py                        # Gradio UI
 │   ├── esports_coach_arena.py        # LangGraph engine + MCP client
@@ -166,23 +193,24 @@ agentarium/
 │   │   ├── evaluate_agent.py         # Orchestrates 3 evaluator sub-agents
 │   │   ├── select_agent.py           # Picks the fittest variant
 │   │   ├── mutation_strategies.py    # 6 named mutation strategies
-│   │   └── evaluators/              # performance, readability, simplicity agents
+│   │   └── evaluators/               # performance, readability, simplicity agents
 │   ├── llm/model.py                  # Ollama LLM factory
 │   └── README.md
-|
-|── Crime Scene Investigator/
-|   ├── config.py
-|   ├── state.py
-|   ├── mcp_server.py          # case file storage, evidence tools
-|   ├── agents/
-|   │   ├── prosecutor_agent.py
-|   │   ├── defense_agent.py
-|   │   ├── forensics_agent.py
-|   │   └── judge_agent.py
-|   ├── graph.py               # debate flow + jury vote
-|   ├── app.py                 # noir Gradio UI
-|   └── README.md
-|
+│
+├── Crime Scene Investigator/
+│   ├── app.py                        # Gradio noir UI
+│   ├── graph.py                      # LangGraph adversarial debate graph
+│   ├── mcp_server.py                 # MCP tools: evidence tagging, timeline, case storage
+│   ├── state.py                      # CaseState TypedDict
+│   ├── config.py                     # Env config, verdict label mapping
+│   ├── agents/
+│   │   ├── forensics_agent.py        # Neutral evidence analyst
+│   │   ├── prosecutor_agent.py       # Builds case for guilt
+│   │   ├── defense_agent.py          # Challenges prosecution, raises doubts
+│   │   └── judge_agent.py            # Weighs debate, returns JSON verdict
+│   ├── memory/                       # Persisted case files
+│   └── README.md
+│
 ├── requirements.txt
 └── README.md
 ```
