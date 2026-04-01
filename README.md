@@ -48,7 +48,7 @@ Adversarial Debate + Jury Vote          →  Crime Scene Investigator
    uv run app.py
    ```
 
-→ #### UI
+→ UI
 
 <img src="./AI Hiring Commitee/images/hire 1.png" width="100%" alt="hire 1" />
 
@@ -74,7 +74,7 @@ Adversarial Debate + Jury Vote          →  Crime Scene Investigator
    uv run app.py
    ```
 
-→ #### UI
+→ UI
 
 <img src="./Code Mutation Lab/images/lab 1.png" width="100%" alt="lab 1" />
 
@@ -101,7 +101,7 @@ Adversarial Debate + Jury Vote          →  Crime Scene Investigator
    uv run app.py
    ```
 
-→ #### UI
+→ UI
 
 <img src="./Code Review Arena/images/code review 1.png" width="100%" alt="review 1" />
 
@@ -126,7 +126,7 @@ Adversarial Debate + Jury Vote          →  Crime Scene Investigator
    uv run app.py
    ```
 
-→ #### UI
+→ UI
 
 <img src="./Crime Scene Investigator/images/crime 1.png" width="100%" alt="case file" />
 <img src="./Crime Scene Investigator/images/crime 2.png" width="100%" alt="case file" />
@@ -149,7 +149,7 @@ Adversarial Debate + Jury Vote          →  Crime Scene Investigator
    uv run app.py
    ```
 
-→ #### UI
+→ UI
 
 <img src="./Esports Coach Arena Agent/images/arena 1.png" width="100%" alt="Esports Coach Arena — hero banner" />
 
@@ -176,7 +176,7 @@ Adversarial Debate + Jury Vote          →  Crime Scene Investigator
    uv run app.py
    ```
 
-→ #### UI
+→ UI
 
 <img src="./Launchpad Strategist Agent/images/launch 1.png" width="100%" alt="Launchpad Strategist — mission control" />
 
