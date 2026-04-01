@@ -34,11 +34,21 @@ Adversarial Debate + Jury Vote          →  Crime Scene Investigator
 
 ## Details & UI for Agents
 
-### AI Hiring Commitee
+### AI Hiring Committee
 
 > **Architecture:** Parallel Blind Evaluation + Chair Aggregation — 4 specialist agents independently evaluate a candidate in parallel (technical, hiring manager, culture, and devil’s advocate). A chair agent synthesizes all perspectives into a final hiring decision, weighted score, and structured reasoning.
 
 <p align="center"><img src="./AI Hiring Commitee/images/hiring_committee_architecture.svg" width="70%" alt="architecture" /> </p>
+
+→ [Full README & architecture](./AI%20Hiring%20Commitee/README.md)
+  
+→ Run:
+   ```bash
+   cd "AI Hiring Commitee"
+   uv run app.py
+   ```
+
+→ #### UI
 
 <img src="./AI Hiring Commitee/images/hire 1.png" width="100%" alt="hire 1" />
 
@@ -50,20 +60,21 @@ Adversarial Debate + Jury Vote          →  Crime Scene Investigator
 
 <img src="./AI Hiring Commitee/images/hire 5.png" width="100%" alt="hire 5" />
 
-
-**Run:**
-```bash
-cd "AI Hiring Commitee"
-uv run app.py
-```
-
-→ [Full README & architecture](./AI%20Hiring%20Commitee/README.md)
-
 ---
 
 ### Code Mutation Lab
 
 > **Architecture:** Genetic / Evolutionary Loop — code evolves across generations. Each generation spawns 3 competing variants using distinct mutation strategies, evaluates them in parallel across 3 fitness dimensions, selects the fittest, and uses it as the seed for the next generation.
+
+→ [Full README & architecture](./Code%20Mutation%20Lab/README.md)
+
+→ Run:
+   ```bash
+   cd "Code Mutation Lab"
+   uv run app.py
+   ```
+
+→ #### UI
 
 <img src="./Code Mutation Lab/images/lab 1.png" width="100%" alt="lab 1" />
 
@@ -74,14 +85,6 @@ uv run app.py
 <img src="./Code Mutation Lab/images/lab 4.png" width="100%" alt="lab 4" />
 
 
-**Run:**
-```bash
-cd "Code Mutation Lab"
-uv run app.py
-```
-
-→ [Full README & architecture](./Code%20Mutation%20Lab/README.md)
-
 ---
 
 ### Code Review Arena
@@ -90,19 +93,22 @@ uv run app.py
 
 <p align="center"><img src="./Code Review Arena/images/code_review_arena_architecture.svg" width="70%" alt="architecture" /> </p>
 
+→ [Full README & architecture](./Code%20Review%20Arena/README.md)
+
+→ Run:
+   ```bash
+   cd "Code Review Arena"
+   uv run app.py
+   ```
+
+→ #### UI
+
 <img src="./Code Review Arena/images/code review 1.png" width="100%" alt="review 1" />
 
 <img src="./Code Review Arena/images/code review 2.png" width="100%" alt="review 2" />
 
 <img src="./Code Review Arena/images/code review 3.png" width="100%" alt="review 3" />
 
-**Run:**
-```bash
-cd "Code Review Arena"
-uv run app.py
-```
-
-→ [Full README & architecture](./Code%20Review%20Arena/README.md)
 
 ---
 
@@ -112,26 +118,38 @@ uv run app.py
  
 <p align="center"><img src="./Crime Scene Investigator/images/csi_architecture.svg" width="70%" alt="arch" /></p>
 
+→ [Full README & architecture](./Crime%20Scene%20Investigator/README.md)
+
+→ Run:
+   ```bash
+   cd "Crime Scene Investigator"
+   uv run app.py
+   ```
+
+→ #### UI
+
 <img src="./Crime Scene Investigator/images/crime 1.png" width="100%" alt="case file" />
 <img src="./Crime Scene Investigator/images/crime 2.png" width="100%" alt="case file" />
 <img src="./Crime Scene Investigator/images/crime 3.png" width="100%" alt="case file" />
 <img src="./Crime Scene Investigator/images/crime 4.png" width="100%" alt="case file" />
 <img src="./Crime Scene Investigator/images/crime 5.png" width="100%" alt="case file" />
-
  
-**Run:**
-```bash
-cd "Crime Scene Investigator"
-uv run app.py
-```
- 
-→ [Full README & architecture](./Crime%20Scene%20Investigator/README.md)
  
 ---
 
 ### Esports Coach Arena Agent
 
 > **Architecture:** Orchestration / Supervisor — a head coach sequentially activates 5 specialist sub-agents, each owning a distinct domain of match preparation.
+
+→ [Full README & architecture](./Esports%20Coach%20Arena%20Agent/README.md)
+
+→ Run:
+   ```bash
+   cd "Esports Coach Arena Agent"
+   uv run app.py
+   ```
+
+→ #### UI
 
 <img src="./Esports Coach Arena Agent/images/arena 1.png" width="100%" alt="Esports Coach Arena — hero banner" />
 
@@ -143,19 +161,22 @@ uv run app.py
 
 <img src="./Esports Coach Arena Agent/images/arena 5.png" width="100%" alt="Esports Coach Arena — agent timeline" />
 
-**Run:**
-```bash
-cd "Esports Coach Arena Agent"
-uv run app.py
-```
-
-→ [Full README & architecture](./Esports%20Coach%20Arena%20Agent/README.md)
 
 ---
 
 ### Launchpad Strategist Agent
 
 > **Architecture:** Plan-then-Execute — a planner agent decides the execution sequence, then individual specialist executors carry out each phase before a critic validates the output.
+
+→ [Full README & architecture](./Launchpad%20Strategist%20Agent/README.md)
+
+→ Run:
+   ```bash
+   cd "Launchpad Strategist Agent"
+   uv run app.py
+   ```
+
+→ #### UI
 
 <img src="./Launchpad Strategist Agent/images/launch 1.png" width="100%" alt="Launchpad Strategist — mission control" />
 
@@ -167,13 +188,6 @@ uv run app.py
 
 <img src="./Launchpad Strategist Agent/images/launch 5.png" width="100%" alt="Launchpad Strategist — launch board" />
 
-**Run:**
-```bash
-cd "Launchpad Strategist Agent"
-uv run app.py
-```
-
-→ [Full README & architecture](./Launchpad%20Strategist%20Agent/README.md)
 
 ---
 
