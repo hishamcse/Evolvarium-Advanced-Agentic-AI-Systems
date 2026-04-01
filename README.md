@@ -2,7 +2,7 @@
  
 A hands-on collection of advanced agentic AI systems — each one a fully self-contained product with a distinct architecture, a custom MCP tool server, persistent memory, and a rich Gradio UI. Built with **LangGraph** and **local Ollama models**. No paid API keys required — though agents will produce richer, more nuanced output with paid models.
  
-Every agent uses a **different graph topology** — orchestration, parallel blind evaluation, plan-then-execute, parallel fan-out, genetic loops, and adversarial debate. The repo is designed to be a reference for real-world agentic patterns, not just prompt wrappers.
+Every agent uses a **different graph topology** — orchestration, parallel blind evaluation, plan-then-execute, parallel fan-out, genetic loops, adversarial debate, and cascading Bayesian refinement. The repo is designed to be a reference for real-world agentic patterns, not just prompt wrappers.
 
 ---
 
@@ -14,6 +14,7 @@ Every agent uses a **different graph topology** — orchestration, parallel blin
 | [Code Mutation Lab](#code-mutation-lab) | Genetic / Evolutionary Loop | LangGraph · Ollama · Gradio | Code enters as a seed. Each generation, 3 strategy-driven variants are mutated, evaluated across performance, readability, and simplicity, and only the fittest survives to seed the next generation. A full fitness timeline and variant explorer track every decision. |
 | [Code Review Arena](#code-review-arena) | Parallel Fan-out + Aggregator | LangGraph · MCP (lint/AST server) · Ollama · Gradio · JSON persistence | 4 specialist reviewer agents fire in parallel — security, performance, logic, and style — then an aggregator merges all findings into a weighted score, severity-classified issue list, and executive summary. |
 | [Crime Scene Investigator](#crime-scene-investigator) | Adversarial Debate + Jury Vote | LangGraph · MCP (evidence + case tools server) · Ollama · Gradio · JSON persistence | Four AI agents enter the courtroom. A Forensics agent analyses evidence cold. A Prosecutor builds the case for guilt. A Defense agent dismantles it. A Judge weighs both sides and delivers a structured verdict with a confidence score. Noir-style UI with evidence board, debate panel, and case archive. |
+| [Medical Differential Engine](#medical-differential-engine) | Cascading Bayesian Refinement | LangGraph · MCP · Ollama · Gradio · JSON persistence | Symptoms enter as a signal. Five specialist agents cascade through a Bayesian probability pipeline — parsing features, scoring priors, probing rare diagnoses, mapping comorbidities, and weighing evidence — until the differential collapses to a ranked, confidence-scored clinical assessment. |
 | [Esports Coach Arena](#esports-coach-arena-agent) | Orchestration / Supervisor | LangGraph · MCP (custom esports server) · Ollama · Gradio · JSON persistence | A persistent multi-agent esports war room. A head coach orchestrates 5 specialist agents — meta analyst, opponent scout, draft coach, mechanics coach, and mindset coach — before locking one decisive match plan. Supports Valorant, League of Legends, and CS2. |
 | [Launchpad Strategist](#launchpad-strategist-agent) | Plan-then-Execute | LangGraph · MCP (custom launch server) · Ollama · Gradio · JSON persistence | A startup launch copilot. A planner agent sequences execution, then specialist agents handle market mapping, ICP definition, messaging, and timeline. A critic validates the final brief before it is saved as a persistent launch board. |
 
@@ -28,8 +29,23 @@ Genetic / Evolutionary Loop             →  Code Mutation Lab
 Orchestration / Supervisor              →  Esports Coach Arena
 Plan-then-Execute                       →  Launchpad Strategist
 Adversarial Debate + Jury Vote          →  Crime Scene Investigator
+Cascading Bayesian Refinement           →  Medical Differential Engine
 ```
 
+---
+
+## Architecture comparison
+ 
+| Agent | Fan-out | Sequential | Loop | Debate | Bayesian |
+|---|---|---|---|---|---|
+| AI Hiring Committee | ✓ parallel | — | — | — | — |
+| Code Review Arena | ✓ parallel | — | — | — | — |
+| Esports Coach Arena | — | ✓ supervisor chain | — | — | — |
+| Launchpad Strategist | — | ✓ plan-then-exec | — | — | — |
+| Crime Scene Investigator | — | ✓ sequential | — | ✓ debate | — |
+| Code Mutation Lab | — | — | ✓ genetic | — | — |
+| Medical Differential Engine | — | ✓ cascade | — | — | ✓ Bayesian |
+ 
 ---
 
 ## Details & UI for Agents
@@ -135,6 +151,30 @@ Adversarial Debate + Jury Vote          →  Crime Scene Investigator
 <img src="./Crime Scene Investigator/images/crime 5.png" width="100%" alt="case file" />
  
  
+---
+
+### Medical Differential Engine
+ 
+> **Architecture:** Cascading Bayesian Refinement — symptoms enter as a signal and flow through five sequential specialist agents, each updating a shared probability distribution before passing it downstream. Unlike parallel fan-out or debate patterns, this is a genuine narrowing probability tree: priors → rare injection → comorbidity LR update → evidence posterior → ranked differential.
+ 
+<p align="center"><img src="./Medical Differential Engine/images/mde_architecture.svg" width="70%" alt="architecture" /></p>
+ 
+→ [Full README & architecture](./Medical%20Differential%20Engine/README.md)
+ 
+→ Run:
+   ```bash
+   cd "Medical Differential Engine"
+   uv run app.py
+   ```
+
+→ UI
+
+<img src="./Medical Differential Engine/images/medical 1.png" width="100%" alt="medical file" />
+<img src="./Medical Differential Engine/images/medical 2.png" width="100%" alt="medical file" />
+<img src="./Medical Differential Engine/images/medical 3.png" width="100%" alt="medical file" />
+<img src="./Medical Differential Engine/images/medical 4.png" width="100%" alt="medical file" />
+<img src="./Medical Differential Engine/images/medical 5.png" width="100%" alt="medical file" />
+
 ---
 
 ### Esports Coach Arena Agent
@@ -266,6 +306,26 @@ evolvarium-agent-forge/
 |   ├── app.py                   # committee room Gradio UI
 |   └── README.md
 |
+├── Medical Differential Engine/      ← NEW
+│   ├── app.py                        # Clinical dark Gradio UI (4 output tabs)
+│   ├── graph.py                      # LangGraph Bayesian cascade
+│   ├── mcp_server.py                 # red flags, ICD hints, drug interactions
+│   ├── state.py                      # EngineState TypedDict
+│   ├── config.py                     # Env config
+│   ├── agents/
+│   │   ├── symptom_parser_agent.py   # L0 — structured feature extraction
+│   │   ├── prior_scorer_agent.py     # L1 — epidemiological priors
+│   │   ├── rare_disease_probe_agent.py  # L2 — zebra injection
+│   │   ├── comorbidity_mapper_agent.py  # L3 — LR modifiers from PMH
+│   │   ├── evidence_weigher_agent.py    # L4 — posterior from exam
+│   │   └── differential_ranker_agent.py # L5 — final synthesis
+│   ├── images/
+│   │   ├── mde_architecture.svg
+│   │   ├── code_mutation_lab_architecture.svg
+│   │   ├── esports_coach_architecture.svg
+│   │   └── launchpad_strategist_architecture.svg
+│   └── README.md
+│
 ├── requirements.txt
 └── README.md
 ```
