@@ -431,6 +431,26 @@ footer { display: none !important; }
   color: var(--muted);
 }
 
+/* ── archive loader row — force both buttons identical height & style ── */
+.gradio-container button.primary {
+  height: 42px !important;
+  min-height: 42px !important;
+}
+.gradio-container button.secondary {
+  height: 42px !important;
+  min-height: 42px !important;
+  background: linear-gradient(135deg, #2b6cb0, #1a4a8a) !important;
+  border: 1px solid rgba(99,179,237,0.25) !important;
+  color: #e2e8f4 !important;
+  font-family: var(--mono) !important;
+  font-size: 11px !important;
+  letter-spacing: 0.12em !important;
+  border-radius: 10px !important;
+}
+.gradio-container button.secondary:hover {
+  background: linear-gradient(135deg, #3182ce, #2b6cb0) !important;
+}
+
 /* ── empty state ── */
 .mde-empty {
   text-align: center;

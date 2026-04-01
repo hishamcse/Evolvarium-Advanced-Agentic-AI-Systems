@@ -443,8 +443,8 @@ with gr.Blocks(css=APP_CSS, title="Medical Differential Engine") as demo:
                 scale=4,
                 show_label=False,
             )
-            refresh_cases_btn = gr.Button("↺ Refresh", variant="secondary", scale=1, size="sm")
-            load_case_btn     = gr.Button("Load case  ▶", variant="primary", scale=1, size="sm")
+            refresh_cases_btn = gr.Button("↺  Refresh list", variant="primary", scale=1)
+            load_case_btn     = gr.Button("Load case  ▶",   variant="primary", scale=1)
 
         with gr.Row():
             # ── LEFT: input form ──────────────────────────────────────────────
