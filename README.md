@@ -38,6 +38,22 @@ No cloud API required. Everything runs on a local **Ollama** model. Paid models 
 
 ---
 
+## 🎯 What You Can Actually Do With This
+
+This is not just a learning repo. You can use these today:
+
+- 👨‍💼 Evaluate candidates with a multi-agent hiring committee
+- 🧬 Improve code using a genetic mutation loop
+- 🔍 Run structured multi-agent code reviews
+- ⚖️ Simulate debates and decision systems
+- 🩺 Explore AI-assisted differential diagnosis (research)
+- 🎮 Generate esports match strategies
+- 🚀 Plan and validate a startup launch strategy
+
+Each system is interactive, visual, and stateful — not a CLI toy.
+
+---
+
 ## 🤖 Agents
 
 | # | Agent | Architecture Pattern | Domain |
@@ -474,7 +490,7 @@ SDE @ IQVIA · .NET & Agentic AI
 
 <br/>
 
-*If this repo helped you understand agentic graph architectures, a ⭐ helps others find it.*
+*If this helped you understand agent systems, consider starring ⭐*
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:2b6cb0,50:1a2a4a,100:0a0d12&height=100&section=footer" width="100%"/>
 
