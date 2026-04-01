@@ -82,6 +82,8 @@ Cascading Bayesian Refinement           →  Medical Differential Engine
 
 > **Architecture:** Genetic / Evolutionary Loop — code evolves across generations. Each generation spawns 3 competing variants using distinct mutation strategies, evaluates them in parallel across 3 fitness dimensions, selects the fittest, and uses it as the seed for the next generation.
 
+<p align="center"><img src="./Code Mutation Lab/images/code_mutation_lab_architecture.svg" width="100%" alt="architecture" /></p>
+
 → [Full README & architecture](./Code%20Mutation%20Lab/README.md)
 
 → Run:
@@ -181,6 +183,8 @@ Cascading Bayesian Refinement           →  Medical Differential Engine
 
 > **Architecture:** Orchestration / Supervisor — a head coach sequentially activates 5 specialist sub-agents, each owning a distinct domain of match preparation.
 
+<p align="center"><img src="./Esports Coach Arena Agent/images/esports_coach_architecture.svg" width="100%" alt="architecture" /></p>
+
 → [Full README & architecture](./Esports%20Coach%20Arena%20Agent/README.md)
 
 → Run:
@@ -207,6 +211,8 @@ Cascading Bayesian Refinement           →  Medical Differential Engine
 ### Launchpad Strategist Agent
 
 > **Architecture:** Plan-then-Execute — a planner agent decides the execution sequence, then individual specialist executors carry out each phase before a critic validates the output.
+
+<p align="center"><img src="./Launchpad Strategist Agent/images/launchpad_strategist_architecture.svg" width="100%" alt="architecture" /></p>
 
 → [Full README & architecture](./Launchpad%20Strategist%20Agent/README.md)
 

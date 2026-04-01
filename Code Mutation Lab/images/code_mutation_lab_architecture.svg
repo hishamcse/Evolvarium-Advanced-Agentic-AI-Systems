@@ -1,0 +1,107 @@
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" font-family="'IBM Plex Mono', monospace">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1208"/>
+      <stop offset="100%" style="stop-color:#080c06"/>
+    </linearGradient>
+    <marker id="a1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#68d391" opacity="0.8"/>
+    </marker>
+    <marker id="a2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#b794f4" opacity="0.8"/>
+    </marker>
+    <marker id="a3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#f6ad55" opacity="0.8"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="560" fill="url(#bg2)" rx="16"/>
+  <rect width="900" height="560" fill="none" stroke="rgba(104,211,145,0.18)" stroke-width="1" rx="16"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" font-size="15" fill="#68d391" letter-spacing="3" font-weight="600">CODE MUTATION LAB</text>
+  <text x="450" y="57" text-anchor="middle" font-size="10" fill="#3a6a4a" letter-spacing="2">GENETIC / EVOLUTIONARY LOOP ARCHITECTURE</text>
+
+  <!-- SEED INPUT -->
+  <rect x="350" y="72" width="200" height="44" rx="10" fill="rgba(104,211,145,0.10)" stroke="#68d391" stroke-width="1.5"/>
+  <text x="450" y="91" text-anchor="middle" font-size="11" fill="#68d391" font-weight="600">SEED CODE</text>
+  <text x="450" y="107" text-anchor="middle" font-size="9" fill="#3a7a50">input function · generation=0</text>
+
+  <line x1="450" y1="116" x2="450" y2="142" stroke="#68d391" stroke-width="1.5" marker-end="url(#a1)" opacity="0.7"/>
+
+  <!-- MUTATOR NODE -->
+  <rect x="300" y="142" width="300" height="52" rx="10" fill="rgba(104,211,145,0.12)" stroke="#68d391" stroke-width="2"/>
+  <text x="450" y="164" text-anchor="middle" font-size="12" fill="#68d391" font-weight="600">MUTATOR NODE</text>
+  <text x="450" y="181" text-anchor="middle" font-size="9" fill="#4aaa70">spawns 3 variants · distinct strategies · no repeats</text>
+
+  <!-- Fan out to 3 variants -->
+  <line x1="375" y1="194" x2="180" y2="238" stroke="#68d391" stroke-width="1.2" marker-end="url(#a1)" opacity="0.5"/>
+  <line x1="450" y1="194" x2="450" y2="238" stroke="#68d391" stroke-width="1.2" marker-end="url(#a1)" opacity="0.5"/>
+  <line x1="525" y1="194" x2="720" y2="238" stroke="#68d391" stroke-width="1.2" marker-end="url(#a1)" opacity="0.5"/>
+
+  <!-- Variant cards -->
+  <rect x="80" y="238" width="200" height="80" rx="8" fill="rgba(99,179,237,0.08)" stroke="#63b3ed" stroke-width="1"/>
+  <text x="180" y="257" text-anchor="middle" font-size="10" fill="#63b3ed" font-weight="600">VARIANT A</text>
+  <text x="180" y="273" text-anchor="middle" font-size="8" fill="#4a6a8a">Performance strategy</text>
+  <text x="180" y="288" text-anchor="middle" font-size="8" fill="#4a6a8a">Perf · Read · Simp</text>
+  <text x="180" y="303" text-anchor="middle" font-size="8" fill="#6b7a99">→ score avg</text>
+
+  <rect x="350" y="238" width="200" height="80" rx="8" fill="rgba(99,179,237,0.08)" stroke="#63b3ed" stroke-width="1"/>
+  <text x="450" y="257" text-anchor="middle" font-size="10" fill="#63b3ed" font-weight="600">VARIANT B</text>
+  <text x="450" y="273" text-anchor="middle" font-size="8" fill="#4a6a8a">Readability strategy</text>
+  <text x="450" y="288" text-anchor="middle" font-size="8" fill="#4a6a8a">Perf · Read · Simp</text>
+  <text x="450" y="303" text-anchor="middle" font-size="8" fill="#6b7a99">→ score avg</text>
+
+  <rect x="620" y="238" width="200" height="80" rx="8" fill="rgba(99,179,237,0.08)" stroke="#63b3ed" stroke-width="1"/>
+  <text x="720" y="257" text-anchor="middle" font-size="10" fill="#63b3ed" font-weight="600">VARIANT C</text>
+  <text x="720" y="273" text-anchor="middle" font-size="8" fill="#4a6a8a">Simplify strategy</text>
+  <text x="720" y="288" text-anchor="middle" font-size="8" fill="#4a6a8a">Perf · Read · Simp</text>
+  <text x="720" y="303" text-anchor="middle" font-size="8" fill="#6b7a99">→ score avg</text>
+
+  <!-- Evaluator sub-agents label -->
+  <text x="450" y="236" text-anchor="middle" font-size="8" fill="#4a6a8a" letter-spacing="1">3 EVALUATOR AGENTS PER VARIANT (PARALLEL)</text>
+
+  <!-- Lines to selector -->
+  <line x1="180" y1="318" x2="380" y2="362" stroke="#68d391" stroke-width="1.2" marker-end="url(#a1)" opacity="0.5"/>
+  <line x1="450" y1="318" x2="450" y2="362" stroke="#68d391" stroke-width="1.2" marker-end="url(#a1)" opacity="0.5"/>
+  <line x1="720" y1="318" x2="520" y2="362" stroke="#68d391" stroke-width="1.2" marker-end="url(#a1)" opacity="0.5"/>
+
+  <!-- SELECTOR NODE -->
+  <rect x="300" y="362" width="300" height="48" rx="10" fill="rgba(246,173,85,0.10)" stroke="#f6ad55" stroke-width="1.5"/>
+  <text x="450" y="382" text-anchor="middle" font-size="11" fill="#f6ad55" font-weight="600">SELECTOR NODE</text>
+  <text x="450" y="398" text-anchor="middle" font-size="9" fill="#a07830">highest avg score wins · records generation history</text>
+
+  <line x1="450" y1="410" x2="450" y2="434" stroke="#f6ad55" stroke-width="1.5" marker-end="url(#a3)" opacity="0.7"/>
+
+  <!-- CONTROLLER NODE -->
+  <rect x="300" y="434" width="300" height="48" rx="10" fill="rgba(159,122,234,0.10)" stroke="#b794f4" stroke-width="1.5"/>
+  <text x="450" y="454" text-anchor="middle" font-size="11" fill="#b794f4" font-weight="600">CONTROLLER NODE</text>
+  <text x="450" y="470" text-anchor="middle" font-size="9" fill="#7a5aaa">generation &lt; max? continue : end</text>
+
+  <!-- Loop back arrow -->
+  <path d="M 300 458 Q 200 458 200 330 Q 200 168 300 168" stroke="#b794f4" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#a2)" opacity="0.6"/>
+  <text x="160" y="320" text-anchor="middle" font-size="9" fill="#7a5aaa" transform="rotate(-90,160,320)">NEXT GENERATION</text>
+
+  <!-- End path -->
+  <line x1="450" y1="482" x2="450" y2="510" stroke="#68d391" stroke-width="1.5" marker-end="url(#a1)" opacity="0.6"/>
+  <rect x="320" y="510" width="260" height="38" rx="10" fill="rgba(104,211,145,0.08)" stroke="#68d391" stroke-width="1"/>
+  <text x="450" y="527" text-anchor="middle" font-size="10" fill="#68d391" font-weight="600">FINAL OUTPUT</text>
+  <text x="450" y="542" text-anchor="middle" font-size="8" fill="#3a6a4a">best code · fitness history · variant explorer</text>
+
+  <!-- Strategy legend -->
+  <rect x="30" y="390" width="180" height="130" rx="8" fill="rgba(104,211,145,0.04)" stroke="rgba(104,211,145,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="120" y="410" text-anchor="middle" font-size="9" fill="#68d391" letter-spacing="1">6 STRATEGIES</text>
+  <text x="40" y="428" font-size="8" fill="#4a6a4a">→ Performance optim.</text>
+  <text x="40" y="443" font-size="8" fill="#4a6a4a">→ Readability improve</text>
+  <text x="40" y="458" font-size="8" fill="#4a6a4a">→ Memory reduction</text>
+  <text x="40" y="473" font-size="8" fill="#4a6a4a">→ Pythonic refactor</text>
+  <text x="40" y="488" font-size="8" fill="#4a6a4a">→ Logic simplify</text>
+  <text x="40" y="503" font-size="8" fill="#4a6a4a">→ Functional style</text>
+
+  <!-- Score formula -->
+  <rect x="690" y="390" width="185" height="60" rx="8" fill="rgba(246,173,85,0.05)" stroke="rgba(246,173,85,0.2)" stroke-width="1"/>
+  <text x="782" y="410" text-anchor="middle" font-size="9" fill="#f6ad55" letter-spacing="1">FITNESS SCORE</text>
+  <text x="782" y="430" text-anchor="middle" font-size="10" fill="#c09040">(perf + read + simp)</text>
+  <text x="782" y="446" text-anchor="middle" font-size="10" fill="#c09040">─────────────────</text>
+  <text x="790" y="444" text-anchor="middle" font-size="9" fill="#c09040">3</text>
+</svg>

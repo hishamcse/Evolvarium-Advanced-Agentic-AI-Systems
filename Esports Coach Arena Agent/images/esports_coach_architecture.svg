@@ -1,0 +1,95 @@
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" font-family="'IBM Plex Mono', monospace">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d0a1a"/>
+      <stop offset="100%" style="stop-color:#080610"/>
+    </linearGradient>
+    <marker id="ap" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#b794f4" opacity="0.8"/>
+    </marker>
+    <marker id="ag" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#68d391" opacity="0.8"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="560" fill="url(#bg3)" rx="16"/>
+  <rect width="900" height="560" fill="none" stroke="rgba(159,122,234,0.18)" stroke-width="1" rx="16"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" font-size="15" fill="#b794f4" letter-spacing="3" font-weight="600">ESPORTS COACH ARENA</text>
+  <text x="450" y="57" text-anchor="middle" font-size="10" fill="#5a3a8a" letter-spacing="2">ORCHESTRATION / SUPERVISOR ARCHITECTURE</text>
+
+  <!-- User Input -->
+  <rect x="340" y="72" width="220" height="44" rx="10" fill="rgba(159,122,234,0.10)" stroke="#b794f4" stroke-width="1.5"/>
+  <text x="450" y="92" text-anchor="middle" font-size="11" fill="#b794f4" font-weight="600">PLAYER REQUEST</text>
+  <text x="450" y="108" text-anchor="middle" font-size="9" fill="#7a5aaa">game · role · opponent · scenario</text>
+
+  <line x1="450" y1="116" x2="450" y2="140" stroke="#b794f4" stroke-width="1.5" marker-end="url(#ap)" opacity="0.7"/>
+
+  <!-- Bootstrap / MCP -->
+  <rect x="310" y="140" width="280" height="44" rx="10" fill="rgba(99,179,237,0.08)" stroke="#63b3ed" stroke-width="1.5"/>
+  <text x="450" y="160" text-anchor="middle" font-size="11" fill="#63b3ed" font-weight="600">BOOTSTRAP NODE</text>
+  <text x="450" y="176" text-anchor="middle" font-size="9" fill="#4a7aaa">create / reload arena state · MCP esports server</text>
+
+  <line x1="450" y1="184" x2="450" y2="206" stroke="#b794f4" stroke-width="1.5" marker-end="url(#ap)" opacity="0.7"/>
+
+  <!-- Specialist agents - sequential chain -->
+  <!-- Meta Analyst -->
+  <rect x="270" y="206" width="360" height="44" rx="10" fill="rgba(237,137,54,0.10)" stroke="#ed8936" stroke-width="1.5"/>
+  <text x="450" y="226" text-anchor="middle" font-size="11" fill="#ed8936" font-weight="600">META ANALYST AGENT</text>
+  <text x="450" y="242" text-anchor="middle" font-size="9" fill="#9a5a10">patch trends · dominant strategies · meta leverage</text>
+
+  <line x1="450" y1="250" x2="450" y2="272" stroke="#b794f4" stroke-width="1.2" marker-end="url(#ap)" opacity="0.6"/>
+
+  <!-- Opponent Scout -->
+  <rect x="270" y="272" width="360" height="44" rx="10" fill="rgba(229,62,62,0.09)" stroke="#fc8181" stroke-width="1.5"/>
+  <text x="450" y="292" text-anchor="middle" font-size="11" fill="#fc8181" font-weight="600">OPPONENT SCOUT AGENT</text>
+  <text x="450" y="308" text-anchor="middle" font-size="9" fill="#9a3030">enemy tempo · tendencies · punish windows</text>
+
+  <line x1="450" y1="316" x2="450" y2="338" stroke="#b794f4" stroke-width="1.2" marker-end="url(#ap)" opacity="0.6"/>
+
+  <!-- Draft Coach -->
+  <rect x="270" y="338" width="360" height="44" rx="10" fill="rgba(246,173,85,0.10)" stroke="#f6ad55" stroke-width="1.5"/>
+  <text x="450" y="358" text-anchor="middle" font-size="11" fill="#f6ad55" font-weight="600">DRAFT COACH AGENT</text>
+  <text x="450" y="374" text-anchor="middle" font-size="9" fill="#9a7020">picks · bans · veto logic · signature game plan</text>
+
+  <line x1="450" y1="382" x2="450" y2="404" stroke="#b794f4" stroke-width="1.2" marker-end="url(#ap)" opacity="0.6"/>
+
+  <!-- Mechanics + Mindset (side by side) -->
+  <rect x="200" y="404" width="220" height="44" rx="10" fill="rgba(104,211,145,0.09)" stroke="#68d391" stroke-width="1.5"/>
+  <text x="310" y="424" text-anchor="middle" font-size="11" fill="#68d391" font-weight="600">MECHANICS COACH</text>
+  <text x="310" y="440" text-anchor="middle" font-size="9" fill="#3a7a50">warmup · training circuit</text>
+
+  <rect x="480" y="404" width="220" height="44" rx="10" fill="rgba(99,179,237,0.09)" stroke="#63b3ed" stroke-width="1.5"/>
+  <text x="590" y="424" text-anchor="middle" font-size="11" fill="#63b3ed" font-weight="600">MINDSET COACH</text>
+  <text x="590" y="440" text-anchor="middle" font-size="9" fill="#4a7aaa">comms · reset protocol · tilt control</text>
+
+  <line x1="450" y1="382" x2="310" y2="404" stroke="#b794f4" stroke-width="1.2" marker-end="url(#ap)" opacity="0.5"/>
+  <line x1="450" y1="382" x2="590" y2="404" stroke="#b794f4" stroke-width="1.2" marker-end="url(#ap)" opacity="0.5"/>
+  <line x1="310" y1="448" x2="400" y2="472" stroke="#b794f4" stroke-width="1.2" marker-end="url(#ap)" opacity="0.5"/>
+  <line x1="590" y1="448" x2="500" y2="472" stroke="#b794f4" stroke-width="1.2" marker-end="url(#ap)" opacity="0.5"/>
+
+  <!-- Head Coach synthesis -->
+  <rect x="290" y="472" width="320" height="44" rx="10" fill="rgba(159,122,234,0.14)" stroke="#b794f4" stroke-width="2"/>
+  <text x="450" y="492" text-anchor="middle" font-size="12" fill="#b794f4" font-weight="600">HEAD COACH AGENT</text>
+  <text x="450" y="508" text-anchor="middle" font-size="9" fill="#8a6aaa">synthesises one decisive match plan · MCP persist</text>
+
+  <!-- MCP Server label -->
+  <rect x="30" y="250" width="170" height="100" rx="8" fill="rgba(159,122,234,0.04)" stroke="rgba(159,122,234,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="115" y="270" text-anchor="middle" font-size="9" fill="#b794f4" letter-spacing="1">MCP SERVER</text>
+  <text x="45" y="288" font-size="8" fill="#5a3a8a">→ session storage</text>
+  <text x="45" y="303" font-size="8" fill="#5a3a8a">→ arena reload</text>
+  <text x="45" y="318" font-size="8" fill="#5a3a8a">→ match plan save</text>
+  <text x="45" y="333" font-size="8" fill="#5a3a8a">→ history query</text>
+  <line x1="200" y1="290" x2="270" y2="290" stroke="rgba(159,122,234,0.2)" stroke-width="1" stroke-dasharray="2,2"/>
+
+  <!-- Games supported -->
+  <rect x="700" y="250" width="170" height="90" rx="8" fill="rgba(237,137,54,0.05)" stroke="rgba(237,137,54,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="785" y="270" text-anchor="middle" font-size="9" fill="#ed8936" letter-spacing="1">GAMES</text>
+  <text x="785" y="290" text-anchor="middle" font-size="10" fill="#7a4a10">Valorant</text>
+  <text x="785" y="310" text-anchor="middle" font-size="10" fill="#7a4a10">League of Legends</text>
+  <text x="785" y="330" text-anchor="middle" font-size="10" fill="#7a4a10">CS2</text>
+
+  <!-- Supervisor label -->
+  <text x="18" y="370" text-anchor="middle" font-size="9" fill="#b794f4" transform="rotate(-90,18,370)" letter-spacing="2" opacity="0.4">SUPERVISOR CHAIN</text>
+</svg>

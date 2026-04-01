@@ -1,0 +1,102 @@
+<svg viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg" font-family="'IBM Plex Mono', monospace">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1410"/>
+      <stop offset="100%" style="stop-color:#060c08"/>
+    </linearGradient>
+    <marker id="am" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#89ffcc" opacity="0.8"/>
+    </marker>
+    <marker id="ao" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#ffbf69" opacity="0.8"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="580" fill="url(#bg4)" rx="16"/>
+  <rect width="900" height="580" fill="none" stroke="rgba(137,255,204,0.15)" stroke-width="1" rx="16"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" font-size="15" fill="#89ffcc" letter-spacing="3" font-weight="600">LAUNCHPAD STRATEGIST</text>
+  <text x="450" y="57" text-anchor="middle" font-size="10" fill="#3a6a50" letter-spacing="2">PLAN-THEN-EXECUTE ARCHITECTURE</text>
+
+  <!-- Input -->
+  <rect x="330" y="72" width="240" height="44" rx="10" fill="rgba(137,255,204,0.08)" stroke="#89ffcc" stroke-width="1.5"/>
+  <text x="450" y="92" text-anchor="middle" font-size="11" fill="#89ffcc" font-weight="600">STARTUP INPUT</text>
+  <text x="450" y="108" text-anchor="middle" font-size="9" fill="#3a8a60">name · product · stage · goal · budget</text>
+
+  <line x1="450" y1="116" x2="450" y2="140" stroke="#89ffcc" stroke-width="1.5" marker-end="url(#am)" opacity="0.7"/>
+
+  <!-- Bootstrap -->
+  <rect x="310" y="140" width="280" height="44" rx="10" fill="rgba(99,179,237,0.08)" stroke="#63b3ed" stroke-width="1.5"/>
+  <text x="450" y="160" text-anchor="middle" font-size="11" fill="#63b3ed" font-weight="600">BOOTSTRAP NODE</text>
+  <text x="450" y="176" text-anchor="middle" font-size="9" fill="#4a7aaa">create / reload launch state · MCP server</text>
+
+  <line x1="450" y1="184" x2="450" y2="206" stroke="#89ffcc" stroke-width="1.5" marker-end="url(#am)" opacity="0.7"/>
+
+  <!-- PLANNER — key differentiator of plan-then-execute -->
+  <rect x="260" y="206" width="380" height="52" rx="10" fill="rgba(255,191,105,0.12)" stroke="#ffbf69" stroke-width="2"/>
+  <text x="450" y="228" text-anchor="middle" font-size="12" fill="#ffbf69" font-weight="600">PLANNER AGENT</text>
+  <text x="450" y="244" text-anchor="middle" font-size="9" fill="#a07030">decides execution order · sequences specialist nodes</text>
+  <text x="450" y="257" text-anchor="middle" font-size="8" fill="#7a5020">⬡ plan-then-execute — planner runs BEFORE executors</text>
+
+  <line x1="450" y1="258" x2="450" y2="278" stroke="#ffbf69" stroke-width="1.5" marker-end="url(#ao)" opacity="0.7"/>
+
+  <!-- Execution chain (planned order) -->
+  <text x="450" y="294" text-anchor="middle" font-size="8" fill="#3a6a50" letter-spacing="1">PLANNED EXECUTION SEQUENCE</text>
+
+  <!-- Market Mapper -->
+  <rect x="280" y="298" width="340" height="40" rx="8" fill="rgba(137,255,204,0.08)" stroke="#89ffcc" stroke-width="1.2"/>
+  <text x="450" y="316" text-anchor="middle" font-size="10" fill="#89ffcc" font-weight="600">MARKET MAPPER</text>
+  <text x="450" y="330" text-anchor="middle" font-size="8" fill="#3a8a60">whitespace analysis · competitive pressure · trends</text>
+  <line x1="450" y1="338" x2="450" y2="354" stroke="#89ffcc" stroke-width="1.2" marker-end="url(#am)" opacity="0.6"/>
+
+  <!-- ICP Builder -->
+  <rect x="280" y="354" width="340" height="40" rx="8" fill="rgba(137,255,204,0.08)" stroke="#89ffcc" stroke-width="1.2"/>
+  <text x="450" y="372" text-anchor="middle" font-size="10" fill="#89ffcc" font-weight="600">ICP BUILDER</text>
+  <text x="450" y="386" text-anchor="middle" font-size="8" fill="#3a8a60">sharpest early audience · pain points · channels</text>
+  <line x1="450" y1="394" x2="450" y2="410" stroke="#89ffcc" stroke-width="1.2" marker-end="url(#am)" opacity="0.6"/>
+
+  <!-- Messaging Writer -->
+  <rect x="280" y="410" width="340" height="40" rx="8" fill="rgba(137,255,204,0.08)" stroke="#89ffcc" stroke-width="1.2"/>
+  <text x="450" y="428" text-anchor="middle" font-size="10" fill="#89ffcc" font-weight="600">MESSAGING WRITER</text>
+  <text x="450" y="442" text-anchor="middle" font-size="8" fill="#3a8a60">positioning · tagline · value prop · copy stack</text>
+  <line x1="450" y1="450" x2="450" y2="466" stroke="#89ffcc" stroke-width="1.2" marker-end="url(#am)" opacity="0.6"/>
+
+  <!-- Timeline Builder -->
+  <rect x="280" y="466" width="340" height="40" rx="8" fill="rgba(137,255,204,0.08)" stroke="#89ffcc" stroke-width="1.2"/>
+  <text x="450" y="484" text-anchor="middle" font-size="10" fill="#89ffcc" font-weight="600">TIMELINE BUILDER</text>
+  <text x="450" y="498" text-anchor="middle" font-size="8" fill="#3a8a60">launch runway · milestones · go-live sequence</text>
+
+  <line x1="350" y1="506" x2="280" y2="528" stroke="#89ffcc" stroke-width="1.2" marker-end="url(#am)" opacity="0.5"/>
+  <line x1="550" y1="506" x2="620" y2="528" stroke="#ffbf69" stroke-width="1.2" marker-end="url(#ao)" opacity="0.5"/>
+
+  <!-- Launch Operator + Critic side by side -->
+  <rect x="130" y="528" width="220" height="38" rx="8" fill="rgba(137,255,204,0.10)" stroke="#89ffcc" stroke-width="1.5"/>
+  <text x="240" y="545" text-anchor="middle" font-size="10" fill="#89ffcc" font-weight="600">LAUNCH OPERATOR</text>
+  <text x="240" y="559" text-anchor="middle" font-size="8" fill="#3a8a60">lock final launch board</text>
+
+  <rect x="550" y="528" width="220" height="38" rx="8" fill="rgba(255,121,121,0.09)" stroke="#ff7979" stroke-width="1.5"/>
+  <text x="660" y="545" text-anchor="middle" font-size="10" fill="#ff7979" font-weight="600">CRITIC + PERSIST</text>
+  <text x="660" y="559" text-anchor="middle" font-size="8" fill="#9a3030">validates brief · saves session</text>
+
+  <!-- MCP Server -->
+  <rect x="30" y="290" width="170" height="100" rx="8" fill="rgba(137,255,204,0.04)" stroke="rgba(137,255,204,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="115" y="310" text-anchor="middle" font-size="9" fill="#89ffcc" letter-spacing="1">MCP SERVER</text>
+  <text x="45" y="328" font-size="8" fill="#3a6a50">→ session persistence</text>
+  <text x="45" y="343" font-size="8" fill="#3a6a50">→ launch templates</text>
+  <text x="45" y="358" font-size="8" fill="#3a6a50">→ market tools</text>
+  <text x="45" y="373" font-size="8" fill="#3a6a50">→ ICP analysis</text>
+  <line x1="200" y1="340" x2="280" y2="340" stroke="rgba(137,255,204,0.15)" stroke-width="1" stroke-dasharray="2,2"/>
+
+  <!-- Output types -->
+  <rect x="700" y="290" width="170" height="120" rx="8" fill="rgba(255,191,105,0.04)" stroke="rgba(255,191,105,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="785" y="310" text-anchor="middle" font-size="9" fill="#ffbf69" letter-spacing="1">OUTPUTS</text>
+  <text x="720" y="330" font-size="8" fill="#7a5020">✦ Market analysis</text>
+  <text x="720" y="347" font-size="8" fill="#7a5020">✦ ICP profile</text>
+  <text x="720" y="364" font-size="8" fill="#7a5020">✦ Messaging stack</text>
+  <text x="720" y="381" font-size="8" fill="#7a5020">✦ Launch timeline</text>
+  <text x="720" y="398" font-size="8" fill="#7a5020">✦ Operator brief</text>
+
+  <!-- Plan-then-execute emphasis -->
+  <text x="18" y="390" text-anchor="middle" font-size="9" fill="#89ffcc" transform="rotate(-90,18,390)" letter-spacing="2" opacity="0.4">PLAN → EXECUTE</text>
+</svg>
