@@ -1,337 +1,481 @@
-# Evolvarium Agent Forge — Advanced Agentic AI Systems
- 
-A hands-on collection of advanced agentic AI systems — each one a fully self-contained product with a distinct architecture, a custom MCP tool server, persistent memory, and a rich Gradio UI. Built with **LangGraph** and **local Ollama models**. No paid API keys required — though agents will produce richer, more nuanced output with paid models.
- 
-Every agent uses a **different graph topology** — orchestration, parallel blind evaluation, plan-then-execute, parallel fan-out, genetic loops, adversarial debate, and cascading Bayesian refinement. The repo is designed to be a reference for real-world agentic patterns, not just prompt wrappers.
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0a0d12,50:1a2a4a,100:2b6cb0&height=200&section=header&text=Evolvarium%20Agent%20Forge&fontSize=42&fontColor=63b3ed&fontAlignY=38&desc=7%20Advanced%20Agentic%20AI%20Systems%20%C2%B7%207%20Distinct%20Architectures&descAlignY=58&descSize=16&descColor=6b7a99" width="100%"/>
+
+<br/>
+
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![LangGraph](https://img.shields.io/badge/LangGraph-0.2+-1C3A5E?style=for-the-badge&logo=langchain&logoColor=white)](https://langchain-ai.github.io/langgraph/)
+[![Ollama](https://img.shields.io/badge/Ollama-Local_LLM-000000?style=for-the-badge&logo=ollama&logoColor=white)](https://ollama.ai)
+[![Gradio](https://img.shields.io/badge/Gradio-UI-FF7C00?style=for-the-badge&logo=gradio&logoColor=white)](https://gradio.app)
+[![MCP](https://img.shields.io/badge/MCP-Tool_Servers-6B46C1?style=for-the-badge)](https://modelcontextprotocol.io)
+[![License](https://img.shields.io/badge/License-MIT-68D391?style=for-the-badge)](LICENSE)
+
+<br/>
+
+> **Not a prompt wrapper collection.**
+> Every agent here runs a real graph topology — fan-out, genetic loop, adversarial debate, Bayesian cascade, orchestration, plan-then-execute. Each one is a self-contained product with its own MCP tool server, persistent memory, and a purpose-built UI.
+
+<br/>
+
+[**Explore Agents ↓**](#-agents) · [**Architecture Patterns ↓**](#-architecture-patterns) · [**Quick Start ↓**](#-quick-start)
+
+</div>
 
 ---
 
-## Agents
+## What This Is
 
-| Agent | Architecture | Tech Stack | What It Does |
+A hands-on collection of advanced agentic AI systems — every agent uses a **different graph topology** — orchestration, parallel blind evaluation, plan-then-execute, parallel fan-out, genetic loops, adversarial debate, and cascading Bayesian refinement. The repo is designed to be a reference for real-world agentic patterns, not just prompt wrappers.
+
+Each agent also ships with:
+- A **custom MCP tool server** it calls during graph execution
+- **Persistent JSON memory** so sessions survive restarts
+- A **rich Gradio UI** designed specifically for that agent's domain — not a generic chat box
+- A **full README** explaining the architecture, graph nodes, and design decisions
+
+No cloud API required. Everything runs on a local **Ollama** model. Paid models (GPT-4o, Claude) produce sharper output but are not needed to run.
+
+---
+
+## 🤖 Agents
+
+| # | Agent | Architecture Pattern | Domain |
 |---|---|---|---|
-| [AI Hiring Committee](#ai-hiring-committee) | Parallel Blind Evaluation + Aggregator | LangGraph · MCP (CV + session server) · Ollama · Gradio · JSON persistence | Simulates a real hiring panel: 4 independent evaluators score a candidate in parallel, a chair agent synthesizes the final decision, and users can store, compare (A/B), and summarize candidates across sessions. |
-| [Code Mutation Lab](#code-mutation-lab) | Genetic / Evolutionary Loop | LangGraph · Ollama · Gradio | Code enters as a seed. Each generation, 3 strategy-driven variants are mutated, evaluated across performance, readability, and simplicity, and only the fittest survives to seed the next generation. A full fitness timeline and variant explorer track every decision. |
-| [Code Review Arena](#code-review-arena) | Parallel Fan-out + Aggregator | LangGraph · MCP (lint/AST server) · Ollama · Gradio · JSON persistence | 4 specialist reviewer agents fire in parallel — security, performance, logic, and style — then an aggregator merges all findings into a weighted score, severity-classified issue list, and executive summary. |
-| [Crime Scene Investigator](#crime-scene-investigator) | Adversarial Debate + Jury Vote | LangGraph · MCP (evidence + case tools server) · Ollama · Gradio · JSON persistence | Four AI agents enter the courtroom. A Forensics agent analyses evidence cold. A Prosecutor builds the case for guilt. A Defense agent dismantles it. A Judge weighs both sides and delivers a structured verdict with a confidence score. Noir-style UI with evidence board, debate panel, and case archive. |
-| [Medical Differential Engine](#medical-differential-engine) | Cascading Bayesian Refinement | LangGraph · MCP · Ollama · Gradio · JSON persistence | Symptoms enter as a signal. Five specialist agents cascade through a Bayesian probability pipeline — parsing features, scoring priors, probing rare diagnoses, mapping comorbidities, and weighing evidence — until the differential collapses to a ranked, confidence-scored clinical assessment. |
-| [Esports Coach Arena](#esports-coach-arena-agent) | Orchestration / Supervisor | LangGraph · MCP (custom esports server) · Ollama · Gradio · JSON persistence | A persistent multi-agent esports war room. A head coach orchestrates 5 specialist agents — meta analyst, opponent scout, draft coach, mechanics coach, and mindset coach — before locking one decisive match plan. Supports Valorant, League of Legends, and CS2. |
-| [Launchpad Strategist](#launchpad-strategist-agent) | Plan-then-Execute | LangGraph · MCP (custom launch server) · Ollama · Gradio · JSON persistence | A startup launch copilot. A planner agent sequences execution, then specialist agents handle market mapping, ICP definition, messaging, and timeline. A critic validates the final brief before it is saved as a persistent launch board. |
+| 1 | [AI Hiring Committee](#1--ai-hiring-committee) | Parallel Blind Evaluation + Aggregator | HR / Talent |
+| 2 | [Code Mutation Lab](#2--code-mutation-lab) | Genetic / Evolutionary Loop | Code Quality |
+| 3 | [Code Review Arena](#3--code-review-arena) | Parallel Fan-out + Aggregator | Code Review |
+| 4 | [Crime Scene Investigator](#4--crime-scene-investigator) | Adversarial Debate + Jury Vote | Investigation |
+| 5 | [Medical Differential Engine](#5--medical-differential-engine) | Cascading Bayesian Refinement | Clinical Reasoning |
+| 6 | [Esports Coach Arena](#6--esports-coach-arena) | Orchestration / Supervisor | Esports Coaching |
+| 7 | [Launchpad Strategist](#7--launchpad-strategist) | Plan-then-Execute | Startup Strategy |
 
 ---
 
-## Architecture patterns used
+## 🏛 Architecture Patterns
+
+The entire point of this repo is to show that **topology matters**. Here is how the seven patterns differ:
 
 ```
-Parallel Blind Evaluation + Aggregator  →  AI Hiring Commitee
-Parallel Fan-out + Aggregator           →  Code Review Arena
-Genetic / Evolutionary Loop             →  Code Mutation Lab
-Orchestration / Supervisor              →  Esports Coach Arena
-Plan-then-Execute                       →  Launchpad Strategist
-Adversarial Debate + Jury Vote          →  Crime Scene Investigator
-Cascading Bayesian Refinement           →  Medical Differential Engine
+┌────────────────────────────────────────────────────────────────────────────────┐
+│  PATTERN                    GRAPH SHAPE           WHEN TO USE                 │
+├────────────────────────────────────────────────────────────────────────────────┤
+│  Parallel Blind Eval    [A]─[B]─[C]─[D] → AGG    Independent scoring, no bias│
+│  Parallel Fan-out       [A]─[B]─[C]─[D] → AGG    Parallel specialist review  │
+│  Genetic Loop            SEED → MUT → EVAL → SEL  Iterative optimisation      │
+│                               ↑____________|                                   │
+│  Adversarial Debate     FOR → AGN → FOR → JUDGE   Structured opposing views   │
+│  Bayesian Cascade       L0→L1→L2→L3→L4→L5        Probability narrowing        │
+│  Orchestration          HEAD→[S1→S2→S3→S4→S5]    Supervisor + specialists    │
+│  Plan-then-Execute      PLAN→[E1→E2→E3→E4]→CRIT  Planned execution order     │
+└────────────────────────────────────────────────────────────────────────────────┘
+```
+
+The key distinction between **Parallel Blind Evaluation** (Hiring) and **Parallel Fan-out** (Code Review) is isolation: in the hiring committee, evaluators never see each other's output. In code review, the aggregator synthesises all outputs simultaneously. Same graph shape, different information flow — different result quality.
+
+---
+
+## ⚡ Quick Start
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/hishamcse/Evolvarium-Advanced-Agentic-AI-Systems
+cd Evolvarium-Advanced-Agentic-AI-Systems
+
+# 2. Install uv (if not already installed)
+pip install uv
+uv sync
+
+# 3. Start Ollama and pull a model
+ollama serve
+ollama pull qwen3:8b      # or llama3.1:8b, mistral, etc.
+
+# 4. Pick any agent and run it
+cd "Crime Scene Investigator"
+uv run app.py             # opens at http://localhost:7860
+```
+
+Each agent is fully self-contained. No shared dependencies to manage.
+
+### Environment
+
+```env
+# .env inside any agent folder
+OLLAMA_BASE_URL=http://localhost:11434/v1
+OLLAMA_BASE_MODEL=qwen3:8b
+......
+...... Other Fields ........
 ```
 
 ---
 
-## Architecture comparison
- 
-| Agent | Fan-out | Sequential | Loop | Debate | Bayesian |
-|---|---|---|---|---|---|
-| AI Hiring Committee | ✓ parallel | — | — | — | — |
-| Code Review Arena | ✓ parallel | — | — | — | — |
-| Esports Coach Arena | — | ✓ supervisor chain | — | — | — |
-| Launchpad Strategist | — | ✓ plan-then-exec | — | — | — |
-| Crime Scene Investigator | — | ✓ sequential | — | ✓ debate | — |
-| Code Mutation Lab | — | — | ✓ genetic | — | — |
-| Medical Differential Engine | — | ✓ cascade | — | — | ✓ Bayesian |
- 
----
+## 1 · AI Hiring Committee
 
-## Details & UI for Agents
+> **Pattern:** Parallel Blind Evaluation + Chair Aggregation
 
-### AI Hiring Committee
+Four specialist evaluators score a candidate simultaneously — without seeing each other's output. Blind isolation prevents anchoring bias. A chair agent then synthesises all four perspectives into a final hiring decision with a weighted score and full reasoning.
 
-> **Architecture:** Parallel Blind Evaluation + Chair Aggregation — 4 specialist agents independently evaluate a candidate in parallel (technical, hiring manager, culture, and devil’s advocate). A chair agent synthesizes all perspectives into a final hiring decision, weighted score, and structured reasoning.
+**Why the architecture matters:** If evaluators saw each other's scores, the first score would anchor everything else. Parallel blind evaluation eliminates this and produces genuinely independent signal.
 
-<p align="center"><img src="./AI Hiring Commitee/images/hiring_committee_architecture.svg" width="70%" alt="architecture" /> </p>
+**Graph:**
+```
+bootstrap ──→ [technical ‖ manager ‖ culture ‖ advocate]  (parallel, blind)
+                              ↓
+                           chair  ──→  persist
+```
 
-→ [Full Details with Architecture Explanation](./AI%20Hiring%20Commitee/README.md)
-  
-→ Run:
-   ```bash
-   cd "AI Hiring Commitee"
-   uv run app.py
-   ```
+**Agents:** Technical Lead · Hiring Manager · Culture Fit · Devil's Advocate · Chair
 
-→ UI
+<p align="center"><img src="./AI Hiring Commitee/images/hiring_committee_architecture.svg" width="72%"/></p>
 
-<img src="./AI Hiring Commitee/images/hire 1.png" width="100%" alt="hire 1" />
+→ [Full architecture deep-dive](./AI%20Hiring%20Commitee/README.md) &nbsp;·&nbsp; `cd "AI Hiring Commitee" && uv run app.py`
 
-<img src="./AI Hiring Commitee/images/hire 2.png" width="100%" alt="hire 2" />
+<details>
+<summary><b>View UI screenshots</b></summary>
 
-<img src="./AI Hiring Commitee/images/hire 3.png" width="100%" alt="hire 3" />
+<img src="./AI Hiring Commitee/images/hire 1.png" width="100%"/>
+<img src="./AI Hiring Commitee/images/hire 2.png" width="100%"/>
+<img src="./AI Hiring Commitee/images/hire 3.png" width="100%"/>
+<img src="./AI Hiring Commitee/images/hire 4.png" width="100%"/>
+<img src="./AI Hiring Commitee/images/hire 5.png" width="100%"/>
 
-<img src="./AI Hiring Commitee/images/hire 4.png" width="100%" alt="hire 4" />
-
-<img src="./AI Hiring Commitee/images/hire 5.png" width="100%" alt="hire 5" />
+</details>
 
 ---
 
-### Code Mutation Lab
+## 2 · Code Mutation Lab
 
-> **Architecture:** Genetic / Evolutionary Loop — code evolves across generations. Each generation spawns 3 competing variants using distinct mutation strategies, evaluates them in parallel across 3 fitness dimensions, selects the fittest, and uses it as the seed for the next generation.
+> **Pattern:** Genetic / Evolutionary Loop
 
-<p align="center"><img src="./Code Mutation Lab/images/code_mutation_lab_architecture.svg" width="100%" alt="architecture" /></p>
+Code enters as a seed. Each generation, three variants compete using distinct mutation strategies. They are each scored by three independent evaluator agents across performance, readability, and simplicity. The fittest variant becomes the seed for the next generation. Repeat.
 
-→ [Full Details with Architecture Explanation](./Code%20Mutation%20Lab/README.md)
+**Why the architecture matters:** A single rewrite prompt has no selection pressure. The loop does. Fitness scores are tracked across every generation — you can watch the code improve (or regress) round by round.
 
-→ Run:
-   ```bash
-   cd "Code Mutation Lab"
-   uv run app.py
-   ```
+**Graph:**
+```
+seed ──→ mutator ──→ [perf_eval ‖ read_eval ‖ simp_eval]  (per variant)
+              ↑              ↓
+           selector ←── scored_variants
+              ↓
+         controller ──→ continue | end
+```
 
-→ UI
+**Mutation strategies (6 total, 3 per generation, no repeats):**
+`performance` · `readability` · `memory reduction` · `pythonic refactor` · `logic simplify` · `functional style`
 
-<img src="./Code Mutation Lab/images/lab 1.png" width="100%" alt="lab 1" />
+<p align="center"><img src="./Code Mutation Lab/images/code_mutation_lab_architecture.svg" width="100%"/></p>
 
-<img src="./Code Mutation Lab/images/lab 2.png" width="100%" alt="lab 2" />
+→ [Full architecture deep-dive](./Code%20Mutation%20Lab/README.md) &nbsp;·&nbsp; `cd "Code Mutation Lab" && uv run app.py`
 
-<img src="./Code Mutation Lab/images/lab 3.png" width="100%" alt="lab 3" />
+<details>
+<summary><b>View UI screenshots</b></summary>
 
-<img src="./Code Mutation Lab/images/lab 4.png" width="100%" alt="lab 4" />
+<img src="./Code Mutation Lab/images/lab 1.png" width="100%"/>
+<img src="./Code Mutation Lab/images/lab 2.png" width="100%"/>
+<img src="./Code Mutation Lab/images/lab 3.png" width="100%"/>
+<img src="./Code Mutation Lab/images/lab 4.png" width="100%"/>
 
-
----
-
-### Code Review Arena
-
-> **Architecture:** Parallel Fan-out + Aggregator — 4 reviewer agents run simultaneously via LangGraph's parallel node execution, cutting review time ~4× vs sequential. An aggregator merges all outputs into one weighted report.
-
-<p align="center"><img src="./Code Review Arena/images/code_review_arena_architecture.svg" width="70%" alt="architecture" /> </p>
-
-→ [Full Details with Architecture Explanation](./Code%20Review%20Arena/README.md)
-
-→ Run:
-   ```bash
-   cd "Code Review Arena"
-   uv run app.py
-   ```
-
-→ UI
-
-<img src="./Code Review Arena/images/code review 1.png" width="100%" alt="review 1" />
-
-<img src="./Code Review Arena/images/code review 2.png" width="100%" alt="review 2" />
-
-<img src="./Code Review Arena/images/code review 3.png" width="100%" alt="review 3" />
-
+</details>
 
 ---
 
-### Crime Scene Investigator
- 
-> **Architecture:** Adversarial Debate + Jury Vote — four agents argue a criminal case from opposing positions. A Forensics agent analyses evidence with zero bias. A Prosecutor builds the case for guilt. A Defense agent reads the prosecution's argument and systematically dismantles it. A Judge weighs both sides independently and returns a structured JSON verdict with a confidence score, key evidence, and reasonable doubts.
- 
-<p align="center"><img src="./Crime Scene Investigator/images/csi_architecture.svg" width="70%" alt="arch" /></p>
+## 3 · Code Review Arena
 
-→ [Full Details with Architecture Explanation](./Crime%20Scene%20Investigator/README.md)
+> **Pattern:** Parallel Fan-out + Aggregator
 
-→ Run:
-   ```bash
-   cd "Crime Scene Investigator"
-   uv run app.py
-   ```
+Four specialist agents review code simultaneously — each owns one domain and nothing else. The aggregator reads all four outputs and produces a single weighted report with severity classification, a composite score, and an executive summary.
 
-→ UI
+**Why the architecture matters:** Sequential review means each agent is influenced by what the previous agent found. Parallel execution means four truly independent signals. The aggregator's job is synthesis, not review — that separation is what produces coherent output.
 
-<img src="./Crime Scene Investigator/images/crime 1.png" width="100%" alt="case file" />
-<img src="./Crime Scene Investigator/images/crime 2.png" width="100%" alt="case file" />
-<img src="./Crime Scene Investigator/images/crime 3.png" width="100%" alt="case file" />
-<img src="./Crime Scene Investigator/images/crime 4.png" width="100%" alt="case file" />
-<img src="./Crime Scene Investigator/images/crime 5.png" width="100%" alt="case file" />
- 
- 
----
+**Graph:**
+```
+bootstrap ──→ [security ‖ performance ‖ logic ‖ style]  (parallel)
+                              ↓
+                         aggregator ──→ persist
+```
 
-### Medical Differential Engine
- 
-> **Architecture:** Cascading Bayesian Refinement — symptoms enter as a signal and flow through five sequential specialist agents, each updating a shared probability distribution before passing it downstream. Unlike parallel fan-out or debate patterns, this is a genuine narrowing probability tree: priors → rare injection → comorbidity LR update → evidence posterior → ranked differential.
- 
-<p align="center"><img src="./Medical Differential Engine/images/mde_architecture.svg" width="100%" alt="architecture" /></p>
- 
-→ [Full Details with Architecture Explanation](./Medical%20Differential%20Engine/README.md)
- 
-→ Run:
-   ```bash
-   cd "Medical Differential Engine"
-   uv run app.py
-   ```
+**Agents:** Security Reviewer · Performance Reviewer · Logic Reviewer · Style Reviewer · Aggregator
 
-→ UI
+<p align="center"><img src="./Code Review Arena/images/code_review_arena_architecture.svg" width="72%"/></p>
 
-<img src="./Medical Differential Engine/images/medical 1.png" width="100%" alt="medical file" />
-<img src="./Medical Differential Engine/images/medical 2.png" width="100%" alt="medical file" />
-<img src="./Medical Differential Engine/images/medical 3.png" width="100%" alt="medical file" />
-<img src="./Medical Differential Engine/images/medical 4.png" width="100%" alt="medical file" />
-<img src="./Medical Differential Engine/images/medical 5.png" width="100%" alt="medical file" />
+→ [Full architecture deep-dive](./Code%20Review%20Arena/README.md) &nbsp;·&nbsp; `cd "Code Review Arena" && uv run app.py`
+
+<details>
+<summary><b>View UI screenshots</b></summary>
+
+<img src="./Code Review Arena/images/code review 1.png" width="100%"/>
+<img src="./Code Review Arena/images/code review 2.png" width="100%"/>
+<img src="./Code Review Arena/images/code review 3.png" width="100%"/>
+
+</details>
 
 ---
 
-### Esports Coach Arena Agent
+## 4 · Crime Scene Investigator
 
-> **Architecture:** Orchestration / Supervisor — a head coach sequentially activates 5 specialist sub-agents, each owning a distinct domain of match preparation.
+> **Pattern:** Adversarial Debate + Jury Vote
 
-<p align="center"><img src="./Esports Coach Arena Agent/images/esports_coach_architecture.svg" width="100%" alt="architecture" /></p>
+Four agents argue a criminal case. The forensics agent analyses evidence with zero bias. The prosecutor builds the case for guilt. The defense agent reads the prosecution's argument and systematically dismantles it. The judge weighs both sides independently and returns a structured JSON verdict — confidence score, key evidence, reasonable doubts, and a closing statement. Noir UI.
 
-→ [Full Details with Architecture Explanation](./Esports%20Coach%20Arena%20Agent/README.md)
+**Why the architecture matters:** The sequential dependency between prosecution and defense is intentional. Defense can only be effective if it directly reads and challenges the prosecution's argument. The judge then weighs a real debate, not two independent monologues.
 
-→ Run:
-   ```bash
-   cd "Esports Coach Arena Agent"
-   uv run app.py
-   ```
+**Graph:**
+```
+bootstrap ──→ forensics ──→ prosecution ──→ defense ──→ judge ──→ persist
+```
 
-→ UI
+**Agents:** Forensics · Prosecutor · Defense · Judge
 
-<img src="./Esports Coach Arena Agent/images/arena 1.png" width="100%" alt="Esports Coach Arena — hero banner" />
+<p align="center"><img src="./Crime Scene Investigator/images/csi_architecture.svg" width="72%"/></p>
 
-<img src="./Esports Coach Arena Agent/images/arena 2.png" width="100%" alt="Esports Coach Arena — pressure board" />
+→ [Full architecture deep-dive](./Crime%20Scene%20Investigator/README.md) &nbsp;·&nbsp; `cd "Crime Scene Investigator" && uv run app.py`
 
-<img src="./Esports Coach Arena Agent/images/arena 3.png" width="100%" alt="Esports Coach Arena — battlefield view" />
+<details>
+<summary><b>View UI screenshots</b></summary>
 
-<img src="./Esports Coach Arena Agent/images/arena 4.png" width="100%" alt="Esports Coach Arena — match plan" />
+<img src="./Crime Scene Investigator/images/crime 1.png" width="100%"/>
+<img src="./Crime Scene Investigator/images/crime 2.png" width="100%"/>
+<img src="./Crime Scene Investigator/images/crime 3.png" width="100%"/>
+<img src="./Crime Scene Investigator/images/crime 4.png" width="100%"/>
+<img src="./Crime Scene Investigator/images/crime 5.png" width="100%"/>
 
-<img src="./Esports Coach Arena Agent/images/arena 5.png" width="100%" alt="Esports Coach Arena — agent timeline" />
-
-
----
-
-### Launchpad Strategist Agent
-
-> **Architecture:** Plan-then-Execute — a planner agent decides the execution sequence, then individual specialist executors carry out each phase before a critic validates the output.
-
-<p align="center"><img src="./Launchpad Strategist Agent/images/launchpad_strategist_architecture.svg" width="100%" alt="architecture" /></p>
-
-→ [Full Details with Architecture Explanation](./Launchpad%20Strategist%20Agent/README.md)
-
-→ Run:
-   ```bash
-   cd "Launchpad Strategist Agent"
-   uv run app.py
-   ```
-
-→ UI
-
-<img src="./Launchpad Strategist Agent/images/launch 1.png" width="100%" alt="Launchpad Strategist — mission control" />
-
-<img src="./Launchpad Strategist Agent/images/launch 2.png" width="100%" alt="Launchpad Strategist — market analysis" />
-
-<img src="./Launchpad Strategist Agent/images/launch 3.png" width="100%" alt="Launchpad Strategist — ICP definition" />
-
-<img src="./Launchpad Strategist Agent/images/launch 4.png" width="100%" alt="Launchpad Strategist — messaging stack" />
-
-<img src="./Launchpad Strategist Agent/images/launch 5.png" width="100%" alt="Launchpad Strategist — launch board" />
-
+</details>
 
 ---
 
-## Project structure
+## 5 · Medical Differential Engine
+
+> **Pattern:** Cascading Bayesian Refinement ← unique to this repo
+
+The only agent in this collection with a genuinely novel architecture. Symptoms enter as a signal. A probability distribution is initialised and then updated at each layer — prior probabilities from epidemiology, rare disease injection, comorbidity likelihood ratio modifiers, and finally a full posterior update from the clinical examination. Each agent reads and updates the shared distribution before passing it forward. The differential collapses to a ranked, confidence-scored assessment.
+
+**Why the architecture matters:** This is not fan-out. This is not a sequential chain. Each node changes the probability distribution that the next node receives. The cascade is the architecture. Compare what L1 believes versus what L5 believes — the delta is the reasoning.
+
+**Graph (cascade — each node mutates shared P(dx)):**
+```
+bootstrap → symptom_parser → prior_scorer → rare_probe
+         → comorbidity_mapper → evidence_weigher → ranker → persist
+
+L0: feature extraction (no probabilities yet)
+L1: P(dx) = epidemiological prior
+L2: P(dx) updated with rare disease injection
+L3: P(dx) × comorbidity likelihood ratios
+L4: P(dx) updated with examination posterior
+L5: ranked differential + workup plan + disposition
+```
+
+**Agents:** Symptom Parser · Prior Scorer · Rare Disease Probe · Comorbidity Mapper · Evidence Weigher · Differential Ranker
+
+**UI tabs:** Differential · Workup & Flags · Cascade Trace · Probability Evolution
+
+<p align="center"><img src="./Medical Differential Engine/images/mde_architecture.svg" width="100%"/></p>
+
+> ⚠️ Research tool demonstrating LangGraph patterns. Not a medical device. Not for clinical use.
+
+→ [Full architecture deep-dive](./Medical%20Differential%20Engine/README.md) &nbsp;·&nbsp; `cd "Medical Differential Engine" && uv run app.py`
+
+<details>
+<summary><b>View UI screenshots</b></summary>
+
+<img src="./Medical Differential Engine/images/medical 1.png" width="100%"/>
+<img src="./Medical Differential Engine/images/medical 2.png" width="100%"/>
+<img src="./Medical Differential Engine/images/medical 3.png" width="100%"/>
+<img src="./Medical Differential Engine/images/medical 4.png" width="100%"/>
+<img src="./Medical Differential Engine/images/medical 5.png" width="100%"/>
+
+</details>
+
+---
+
+## 6 · Esports Coach Arena
+
+> **Pattern:** Orchestration / Supervisor
+
+A head coach activates five specialist sub-agents in sequence, each owning one domain of match preparation. No agent works without the previous one completing first — each output feeds the next. The head coach then synthesises everything into one decisive match plan, saved as a persistent arena session. Supports Valorant, League of Legends, and CS2.
+
+**Why the architecture matters:** This is not the same as a sequential chain. The head coach decides which specialist to activate and in what context — it is a supervisor directing specialists, not a pipeline processing a document. The MCP esports tool server gives agents structured access to game-specific data.
+
+**Graph:**
+```
+bootstrap → meta_analyst → opponent_scout → draft_coach
+         → mechanics_coach → mindset_coach → head_coach → persist
+```
+
+**Agents:** Meta Analyst · Opponent Scout · Draft Coach · Mechanics Coach · Mindset Coach · Head Coach
+
+<p align="center"><img src="./Esports Coach Arena Agent/images/esports_coach_architecture.svg" width="100%"/></p>
+
+→ [Full architecture deep-dive](./Esports%20Coach%20Arena%20Agent/README.md) &nbsp;·&nbsp; `cd "Esports Coach Arena Agent" && uv run app.py`
+
+<details>
+<summary><b>View UI screenshots</b></summary>
+
+<img src="./Esports Coach Arena Agent/images/arena 1.png" width="100%"/>
+<img src="./Esports Coach Arena Agent/images/arena 2.png" width="100%"/>
+<img src="./Esports Coach Arena Agent/images/arena 3.png" width="100%"/>
+<img src="./Esports Coach Arena Agent/images/arena 4.png" width="100%"/>
+<img src="./Esports Coach Arena Agent/images/arena 5.png" width="100%"/>
+
+</details>
+
+---
+
+## 7 · Launchpad Strategist
+
+> **Pattern:** Plan-then-Execute
+
+The key distinction from orchestration: here, a **planner agent runs first** and decides the execution sequence before any executor fires. The planner produces a structured plan; executors carry it out in planned order. A critic then validates the final brief before it is persisted. Startup founders get a full launch board — market angle, ICP, messaging, and a go-live runway.
+
+**Why the architecture matters:** In orchestration, the supervisor directs as it goes. In plan-then-execute, the plan is committed upfront. This matters because it allows the plan to be inspected, overridden, or modified before execution begins — a critical property for high-stakes output.
+
+**Graph:**
+```
+bootstrap → planner → market_mapper → icp_builder
+         → messaging_writer → timeline_builder → launch_operator → critic → persist
+```
+
+**Agents:** Planner · Market Mapper · ICP Builder · Messaging Writer · Timeline Builder · Launch Operator · Critic
+
+<p align="center"><img src="./Launchpad Strategist Agent/images/launchpad_strategist_architecture.svg" width="100%"/></p>
+
+→ [Full architecture deep-dive](./Launchpad%20Strategist%20Agent/README.md) &nbsp;·&nbsp; `cd "Launchpad Strategist Agent" && uv run app.py`
+
+<details>
+<summary><b>View UI screenshots</b></summary>
+
+<img src="./Launchpad Strategist Agent/images/launch 1.png" width="100%"/>
+<img src="./Launchpad Strategist Agent/images/launch 2.png" width="100%"/>
+<img src="./Launchpad Strategist Agent/images/launch 3.png" width="100%"/>
+<img src="./Launchpad Strategist Agent/images/launch 4.png" width="100%"/>
+<img src="./Launchpad Strategist Agent/images/launch 5.png" width="100%"/>
+
+</details>
+
+---
+
+## 📐 Architecture Comparison
+
+| Agent | Graph Shape | Parallel? | Loop? | Debate? | Bayesian? | MCP? |
+|---|---|---|---|---|---|---|
+| AI Hiring Committee | Fan-out → aggregator | ✅ blind parallel | — | — | — | ✅ |
+| Code Review Arena | Fan-out → aggregator | ✅ open parallel | — | — | — | ✅ |
+| Code Mutation Lab | Cycle | — | ✅ genetic | — | — | — |
+| Crime Scene Investigator | Sequential chain | — | — | ✅ | — | ✅ |
+| Medical Differential Engine | Sequential cascade | — | — | — | ✅ | ✅ |
+| Esports Coach Arena | Supervisor chain | — | — | — | — | ✅ |
+| Launchpad Strategist | Plan + exec chain | — | — | — | — | ✅ |
+
+**Difference between the two fan-out agents:** In AI Hiring Committee, evaluators run in parallel and are completely isolated — no agent sees another's output before forming its own score. In Code Review Arena, agents also run in parallel but the aggregator synthesises all four outputs simultaneously. Same graph shape, different information access pattern.
+
+---
+
+## 📁 Project Structure
 
 ```
 evolvarium-agent-forge/
-├── Esports Coach Arena Agent/
-│   ├── app.py                        # Gradio UI
-│   ├── esports_coach_arena.py        # LangGraph engine + MCP client
-│   ├── esports_server.py             # Custom MCP esports tools server
-│   ├── memory/                       # Persistent arena sessions
-│   └── README.md
 │
-├── Launchpad Strategist Agent/
-│   ├── app.py                        # Gradio UI
-│   ├── src/launchpad_strategist/
-│   │   ├── graph/                    # LangGraph nodes + builder
-│   │   ├── mcp/                      # Custom MCP launch tools server
-│   │   ├── models/                   # State + schema definitions
-│   │   ├── prompts/                  # System prompts
-│   │   └── services/                 # Engine + model factory
-│   ├── memory/                       # Persistent launch sessions
-│   └── README.md
-│
-├── Code Review Arena/
-│   ├── app.py                        # Gradio UI
-│   ├── graph.py                      # LangGraph graph (parallel fan-out)
-│   ├── mcp_server.py                 # MCP tools: lint, AST, language detect
-│   ├── agents/                       # 4 specialist reviewer agents
-│   ├── state.py                      # LangGraph TypedDict state
-│   ├── config.py                     # Env + model config
-│   ├── memory/                       # Persisted review sessions
+├── AI Hiring Commitee/
+│   ├── app.py                        # Committee room Gradio UI
+│   ├── graph.py                      # Parallel blind scoring + chair aggregation
+│   ├── mcp_server.py                 # CV parsing, job spec extraction, session storage
+│   ├── agents/                       # technical · manager · culture · advocate · chair
+│   ├── memory/                       # Persisted sessions (JSON)
 │   └── README.md
 │
 ├── Code Mutation Lab/
-│   ├── app.py                        # Gradio UI
+│   ├── app.py                        # Lab Gradio UI
 │   ├── graph/
-│   │   ├── builder.py                # LangGraph graph (genetic loop)
+│   │   ├── builder.py                # LangGraph genetic loop
 │   │   ├── state.py                  # MutationState TypedDict
-│   │   └── nodes/                    # mutator, evaluator, selector, controller
-│   ├── agents/
-│   │   ├── mutate_agent.py           # Spawns 3 strategy-driven variants
-│   │   ├── evaluate_agent.py         # Orchestrates 3 evaluator sub-agents
-│   │   ├── select_agent.py           # Picks the fittest variant
-│   │   ├── mutation_strategies.py    # 6 named mutation strategies
-│   │   └── evaluators/               # performance, readability, simplicity agents
-│   ├── llm/model.py                  # Ollama LLM factory
+│   │   └── nodes/                    # mutator · evaluator · selector · controller
+│   ├── agents/                       # mutate · evaluate · select + evaluators/
+│   └── README.md
+│
+├── Code Review Arena/
+│   ├── app.py                        # Arena Gradio UI
+│   ├── graph.py                      # Parallel fan-out graph
+│   ├── mcp_server.py                 # lint · AST · language detect
+│   ├── agents/                       # security · performance · logic · style
 │   └── README.md
 │
 ├── Crime Scene Investigator/
-│   ├── app.py                        # Gradio noir UI
-│   ├── graph.py                      # LangGraph adversarial debate graph
-│   ├── mcp_server.py                 # MCP tools: evidence tagging, timeline, case storage
-│   ├── state.py                      # CaseState TypedDict
-│   ├── config.py                     # Env config, verdict label mapping
-│   ├── agents/
-│   │   ├── forensics_agent.py        # Neutral evidence analyst
-│   │   ├── prosecutor_agent.py       # Builds case for guilt
-│   │   ├── defense_agent.py          # Challenges prosecution, raises doubts
-│   │   └── judge_agent.py            # Weighs debate, returns JSON verdict
-│   ├── memory/                       # Persisted case files
+│   ├── app.py                        # Noir Gradio UI
+│   ├── graph.py                      # Adversarial debate graph
+│   ├── mcp_server.py                 # evidence tagging · timeline · case storage
+│   ├── agents/                       # forensics · prosecutor · defense · judge
 │   └── README.md
 │
-├── AI Hiring Committee/
-|   ├── config.py
-|   ├── state.py
-|   ├── mcp_server.py            # CV parsing, job spec extraction, session storage
-|   ├── agents/
-|   │   ├── technical_agent.py
-|   │   ├── manager_agent.py
-|   │   ├── culture_agent.py
-|   │   ├── advocate_agent.py
-|   │   └── chair_agent.py
-|   ├── graph.py                 # parallel blind scoring + chair aggregation
-|   ├── app.py                   # committee room Gradio UI
-|   └── README.md
-|
-├── Medical Differential Engine/      ← NEW
-│   ├── app.py                        # Clinical dark Gradio UI (4 output tabs)
+├── Medical Differential Engine/
+│   ├── app.py                        # Clinical dark UI — 4 output tabs
 │   ├── graph.py                      # LangGraph Bayesian cascade
-│   ├── mcp_server.py                 # red flags, ICD hints, drug interactions
-│   ├── state.py                      # EngineState TypedDict
-│   ├── config.py                     # Env config
+│   ├── mcp_server.py                 # red flags · ICD hints · drug interactions
 │   ├── agents/
 │   │   ├── symptom_parser_agent.py   # L0 — structured feature extraction
 │   │   ├── prior_scorer_agent.py     # L1 — epidemiological priors
 │   │   ├── rare_disease_probe_agent.py  # L2 — zebra injection
-│   │   ├── comorbidity_mapper_agent.py  # L3 — LR modifiers from PMH
-│   │   ├── evidence_weigher_agent.py    # L4 — posterior from exam
+│   │   ├── comorbidity_mapper_agent.py  # L3 — LR modifiers from PMH/meds
+│   │   ├── evidence_weigher_agent.py    # L4 — posterior from examination
 │   │   └── differential_ranker_agent.py # L5 — final synthesis
-│   ├── images/
-│   │   ├── mde_architecture.svg
-│   │   ├── code_mutation_lab_architecture.svg
-│   │   ├── esports_coach_architecture.svg
-│   │   └── launchpad_strategist_architecture.svg
+│   └── README.md
+│
+├── Esports Coach Arena Agent/
+│   ├── app.py                        # War room Gradio UI
+│   ├── esports_coach_arena.py        # LangGraph engine + MCP client
+│   ├── esports_server.py             # Custom MCP esports tools server
+│   └── README.md
+│
+├── Launchpad Strategist Agent/
+│   ├── app.py                        # Mission control Gradio UI
+│   ├── src/launchpad_strategist/
+│   │   ├── graph/                    # LangGraph nodes + builder
+│   │   ├── mcp/                      # Custom MCP launch tools server
+│   │   ├── models/                   # State + schema definitions
+│   │   └── prompts/                  # System prompts
 │   └── README.md
 │
 ├── requirements.txt
 └── README.md
 ```
+
+---
+
+## 🔧 Tech Stack
+
+| Component | Technology | Purpose |
+|---|---|---|
+| Graph engine | [LangGraph](https://langchain-ai.github.io/langgraph/) | Agent topology, state, routing |
+| LLM backend | [Ollama](https://ollama.ai) (local) | Runs any GGUF model locally |
+| LLM interface | [langchain-openai](https://python.langchain.com/docs/integrations/llms/openai/) | OpenAI-compatible API calls to Ollama |
+| Tool servers | [MCP](https://modelcontextprotocol.io) | Modular tool exposure per agent |
+| UI | [Gradio](https://gradio.app) | Per-agent custom interfaces |
+| Persistence | JSON files | Session / case / memory storage |
+| Package manager | [uv](https://github.com/astral-sh/uv) | Fast, reproducible Python environments |
+
+---
+
+## 💡 What You Can Learn From This Repo
+
+This isn't a tutorial. It's a reference implementation. The things worth studying:
+
+**Graph topology design** — why does the hiring committee use parallel blind evaluation instead of sequential? Why does the crime scene investigator use sequential instead of parallel? Topology is not aesthetic — it determines what information each agent has access to and when.
+
+**State design** — every agent uses a `TypedDict` state. The Medical Differential Engine's state carries a `List[DiagnosisCandidate]` that is mutated in place across six layers. The Hiring Committee's state carries four independent `eval` dicts that only the chair reads. Good state design makes graph logic trivial.
+
+**MCP tool server pattern** — every agent with an MCP server exposes domain-specific tools that the graph calls synchronously. The CSI server does evidence tagging and timeline extraction. The hiring server does CV parsing and session management. Tools are not decorators on a chat model — they are callable services the graph controls.
+
+**When to loop vs when to chain** — the Code Mutation Lab loops because each generation needs the output of the previous generation as its seed. Every other agent chains because it only needs one pass. Knowing when a loop adds value versus adds latency is a real engineering decision.
+
+---
+
+<div align="center">
+
+**Built by [Syed Jarullah Hisham](https://github.com/hishamcse)**
+SDE @ IQVIA · .NET & Agentic AI
+
+<br/>
+
+*If this repo helped you understand agentic graph architectures, a ⭐ helps others find it.*
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2b6cb0,50:1a2a4a,100:0a0d12&height=100&section=footer" width="100%"/>
+
+</div>
