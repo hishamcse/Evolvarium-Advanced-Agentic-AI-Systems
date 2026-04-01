@@ -37,6 +37,8 @@ This one works because it creates a clear fantasy for the user:
 
 This agent uses an **Orchestration / Supervisor Architecture**.
 
+<img src="./images/esports_coach_architecture.svg" width="100%" alt="arch" />
+
 ```text
 User request / Start session
         |

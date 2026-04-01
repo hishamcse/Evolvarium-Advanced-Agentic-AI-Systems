@@ -38,6 +38,8 @@ This one works because it makes the AI reasoning **visible and competitive**:
 
 This agent uses a **Genetic / Evolutionary Loop Architecture**.
 
+<img src="./images/code_mutation_lab_architecture.svg" width="100%" alt="arch" />
+
 ```text
 User submits seed code
         |

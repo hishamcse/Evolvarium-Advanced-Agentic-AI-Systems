@@ -56,7 +56,7 @@ Cascading Bayesian Refinement           →  Medical Differential Engine
 
 <p align="center"><img src="./AI Hiring Commitee/images/hiring_committee_architecture.svg" width="70%" alt="architecture" /> </p>
 
-→ [Full README & architecture](./AI%20Hiring%20Commitee/README.md)
+→ [Full Details with Architecture Explanation](./AI%20Hiring%20Commitee/README.md)
   
 → Run:
    ```bash
@@ -84,7 +84,7 @@ Cascading Bayesian Refinement           →  Medical Differential Engine
 
 <p align="center"><img src="./Code Mutation Lab/images/code_mutation_lab_architecture.svg" width="100%" alt="architecture" /></p>
 
-→ [Full README & architecture](./Code%20Mutation%20Lab/README.md)
+→ [Full Details with Architecture Explanation](./Code%20Mutation%20Lab/README.md)
 
 → Run:
    ```bash
@@ -111,7 +111,7 @@ Cascading Bayesian Refinement           →  Medical Differential Engine
 
 <p align="center"><img src="./Code Review Arena/images/code_review_arena_architecture.svg" width="70%" alt="architecture" /> </p>
 
-→ [Full README & architecture](./Code%20Review%20Arena/README.md)
+→ [Full Details with Architecture Explanation](./Code%20Review%20Arena/README.md)
 
 → Run:
    ```bash
@@ -136,7 +136,7 @@ Cascading Bayesian Refinement           →  Medical Differential Engine
  
 <p align="center"><img src="./Crime Scene Investigator/images/csi_architecture.svg" width="70%" alt="arch" /></p>
 
-→ [Full README & architecture](./Crime%20Scene%20Investigator/README.md)
+→ [Full Details with Architecture Explanation](./Crime%20Scene%20Investigator/README.md)
 
 → Run:
    ```bash
@@ -161,7 +161,7 @@ Cascading Bayesian Refinement           →  Medical Differential Engine
  
 <p align="center"><img src="./Medical Differential Engine/images/mde_architecture.svg" width="100%" alt="architecture" /></p>
  
-→ [Full README & architecture](./Medical%20Differential%20Engine/README.md)
+→ [Full Details with Architecture Explanation](./Medical%20Differential%20Engine/README.md)
  
 → Run:
    ```bash
@@ -185,7 +185,7 @@ Cascading Bayesian Refinement           →  Medical Differential Engine
 
 <p align="center"><img src="./Esports Coach Arena Agent/images/esports_coach_architecture.svg" width="100%" alt="architecture" /></p>
 
-→ [Full README & architecture](./Esports%20Coach%20Arena%20Agent/README.md)
+→ [Full Details with Architecture Explanation](./Esports%20Coach%20Arena%20Agent/README.md)
 
 → Run:
    ```bash
@@ -214,7 +214,7 @@ Cascading Bayesian Refinement           →  Medical Differential Engine
 
 <p align="center"><img src="./Launchpad Strategist Agent/images/launchpad_strategist_architecture.svg" width="100%" alt="architecture" /></p>
 
-→ [Full README & architecture](./Launchpad%20Strategist%20Agent/README.md)
+→ [Full Details with Architecture Explanation](./Launchpad%20Strategist%20Agent/README.md)
 
 → Run:
    ```bash

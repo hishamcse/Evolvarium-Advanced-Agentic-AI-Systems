@@ -22,6 +22,8 @@ The point is not to behave like one general chatbot. This agent uses a **Plan-an
 
 ## Architecture Pattern
 
+<img src="./images/launchpad_strategist_architecture.svg" width="100%" alt="arch" />
+
 ```text
 User request / startup setup
         |
