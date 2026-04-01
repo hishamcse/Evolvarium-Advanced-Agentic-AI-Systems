@@ -1,0 +1,116 @@
+<svg viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg" font-family="'IBM Plex Mono', monospace">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1520"/>
+      <stop offset="100%" style="stop-color:#0a0d12"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#63b3ed" opacity="0.7"/>
+    </marker>
+    <marker id="arr-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#fc8181" opacity="0.8"/>
+    </marker>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="580" fill="url(#bg)" rx="16"/>
+  <rect width="900" height="580" fill="none" stroke="rgba(99,179,237,0.15)" stroke-width="1" rx="16"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" font-size="15" fill="#63b3ed" letter-spacing="3" font-weight="600">MEDICAL DIFFERENTIAL ENGINE</text>
+  <text x="450" y="58" text-anchor="middle" font-size="10" fill="#4a6a8a" letter-spacing="2">CASCADING BAYESIAN REFINEMENT ARCHITECTURE</text>
+
+  <!-- INPUT BOX -->
+  <rect x="340" y="74" width="220" height="52" rx="10" fill="rgba(99,179,237,0.08)" stroke="#63b3ed" stroke-width="1.5"/>
+  <text x="450" y="97" text-anchor="middle" font-size="11" fill="#63b3ed" font-weight="600">CLINICAL INPUT</text>
+  <text x="450" y="114" text-anchor="middle" font-size="9" fill="#4a8aaa">symptoms · vitals · history · exam</text>
+
+  <!-- Arrow down to L0 -->
+  <line x1="450" y1="126" x2="450" y2="152" stroke="#63b3ed" stroke-width="1.5" marker-end="url(#arr)" opacity="0.6"/>
+
+  <!-- LAYER 0: Symptom Parser -->
+  <rect x="290" y="152" width="320" height="52" rx="10" fill="rgba(104,211,145,0.10)" stroke="#68d391" stroke-width="1.5"/>
+  <text x="450" y="174" text-anchor="middle" font-size="11" fill="#68d391" font-weight="600">L0 — SYMPTOM PARSER</text>
+  <text x="450" y="191" text-anchor="middle" font-size="9" fill="#4aaa70">structured feature extraction · red flags · system review</text>
+
+  <!-- Arrow -->
+  <line x1="450" y1="204" x2="450" y2="228" stroke="#63b3ed" stroke-width="1.5" marker-end="url(#arr)" opacity="0.6"/>
+  <!-- Probability label -->
+  <text x="464" y="222" font-size="8" fill="#4a6a8a">P(dx) initialised</text>
+
+  <!-- LAYER 1: Prior Scorer -->
+  <rect x="290" y="228" width="320" height="52" rx="10" fill="rgba(99,179,237,0.10)" stroke="#63b3ed" stroke-width="1.5"/>
+  <text x="450" y="250" text-anchor="middle" font-size="11" fill="#63b3ed" font-weight="600">L1 — PRIOR SCORER</text>
+  <text x="450" y="267" text-anchor="middle" font-size="9" fill="#4a7aaa">epidemiological base rates · 5–8 candidates · prior P(dx)</text>
+
+  <line x1="450" y1="280" x2="450" y2="304" stroke="#63b3ed" stroke-width="1.5" marker-end="url(#arr)" opacity="0.6"/>
+  <text x="464" y="298" font-size="8" fill="#4a6a8a">P(dx) + rare injection</text>
+
+  <!-- LAYER 2: Rare Disease Probe -->
+  <rect x="290" y="304" width="320" height="52" rx="10" fill="rgba(159,122,234,0.10)" stroke="#b794f4" stroke-width="1.5"/>
+  <text x="450" y="326" text-anchor="middle" font-size="11" fill="#b794f4" font-weight="600">L2 — RARE DISEASE PROBE</text>
+  <text x="450" y="343" text-anchor="middle" font-size="9" fill="#8a6abf">zebra diagnoses · atypical variants · renormalise</text>
+
+  <line x1="450" y1="356" x2="450" y2="380" stroke="#63b3ed" stroke-width="1.5" marker-end="url(#arr)" opacity="0.6"/>
+  <text x="464" y="374" font-size="8" fill="#4a6a8a">P(dx) × LR comorbid</text>
+
+  <!-- LAYER 3: Comorbidity Mapper -->
+  <rect x="290" y="380" width="320" height="52" rx="10" fill="rgba(246,173,85,0.10)" stroke="#f6ad55" stroke-width="1.5"/>
+  <text x="450" y="402" text-anchor="middle" font-size="11" fill="#f6ad55" font-weight="600">L3 — COMORBIDITY MAPPER</text>
+  <text x="450" y="419" text-anchor="middle" font-size="9" fill="#b07a30">PMH · medications · likelihood ratio modifiers</text>
+
+  <line x1="450" y1="432" x2="450" y2="456" stroke="#63b3ed" stroke-width="1.5" marker-end="url(#arr)" opacity="0.6"/>
+  <text x="464" y="450" font-size="8" fill="#4a6a8a">P(dx) × LR exam</text>
+
+  <!-- LAYER 4: Evidence Weigher -->
+  <rect x="290" y="456" width="320" height="52" rx="10" fill="rgba(237,137,54,0.10)" stroke="#ed8936" stroke-width="1.5"/>
+  <text x="450" y="478" text-anchor="middle" font-size="11" fill="#ed8936" font-weight="600">L4 — EVIDENCE WEIGHER</text>
+  <text x="450" y="495" text-anchor="middle" font-size="9" fill="#a06020">posterior update · exam findings · vital signs</text>
+
+  <line x1="450" y1="508" x2="450" y2="530" stroke="#fc8181" stroke-width="1.5" marker-end="url(#arr-red)" opacity="0.7"/>
+
+  <!-- LAYER 5: Differential Ranker -->
+  <rect x="290" y="530" width="320" height="38" rx="10" fill="rgba(229,62,62,0.12)" stroke="#fc8181" stroke-width="2"/>
+  <text x="450" y="548" text-anchor="middle" font-size="11" fill="#fc8181" font-weight="600">L5 — DIFFERENTIAL RANKER</text>
+  <text x="450" y="562" text-anchor="middle" font-size="9" fill="#c04040">ranked dx · workup plan · disposition · persist</text>
+
+  <!-- LEFT SIDE: MCP Tools -->
+  <rect x="30" y="200" width="180" height="90" rx="10" fill="rgba(99,179,237,0.05)" stroke="rgba(99,179,237,0.25)" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="120" y="220" text-anchor="middle" font-size="10" fill="#63b3ed" letter-spacing="1">MCP SERVER</text>
+  <text x="120" y="237" text-anchor="middle" font-size="9" fill="#4a6a8a">red flag lookup</text>
+  <text x="120" y="251" text-anchor="middle" font-size="9" fill="#4a6a8a">ICD-10 hints</text>
+  <text x="120" y="265" text-anchor="middle" font-size="9" fill="#4a6a8a">drug interactions</text>
+  <text x="120" y="279" text-anchor="middle" font-size="9" fill="#4a6a8a">case persistence</text>
+  <line x1="210" y1="245" x2="290" y2="330" stroke="rgba(99,179,237,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- RIGHT SIDE: Probability annotations -->
+  <rect x="690" y="155" width="178" height="230" rx="10" fill="rgba(99,179,237,0.04)" stroke="rgba(99,179,237,0.15)" stroke-width="1"/>
+  <text x="779" y="175" text-anchor="middle" font-size="10" fill="#63b3ed" letter-spacing="1">PROBABILITY RAMP</text>
+  <rect x="706" y="185" width="12" height="10" rx="2" fill="#4a5568"/>
+  <text x="724" y="194" font-size="9" fill="#6b7a99">EXCLUDED  &lt; 5%</text>
+  <rect x="706" y="203" width="12" height="10" rx="2" fill="#667eea"/>
+  <text x="724" y="212" font-size="9" fill="#6b7a99">UNLIKELY  5–25%</text>
+  <rect x="706" y="221" width="12" height="10" rx="2" fill="#38b2ac"/>
+  <text x="724" y="230" font-size="9" fill="#6b7a99">POSSIBLE  25–50%</text>
+  <rect x="706" y="239" width="12" height="10" rx="2" fill="#d69e2e"/>
+  <text x="724" y="248" font-size="9" fill="#6b7a99">PROBABLE  50–70%</text>
+  <rect x="706" y="257" width="12" height="10" rx="2" fill="#ed8936"/>
+  <text x="724" y="266" font-size="9" fill="#6b7a99">LIKELY    70–85%</text>
+  <rect x="706" y="275" width="12" height="10" rx="2" fill="#e53e3e"/>
+  <text x="724" y="284" font-size="9" fill="#6b7a99">HI LIKELY &gt;85%</text>
+  <line x1="706" y1="300" x2="860" y2="300" stroke="rgba(99,179,237,0.1)" stroke-width="0.5"/>
+  <text x="779" y="318" text-anchor="middle" font-size="9" fill="#4a6a8a">URGENCY FLAGS</text>
+  <rect x="706" y="326" width="12" height="10" rx="2" fill="rgba(252,68,68,0.3)"/>
+  <text x="724" y="335" font-size="9" fill="#fc8181">EMERGENCY</text>
+  <rect x="706" y="344" width="12" height="10" rx="2" fill="rgba(246,173,85,0.3)"/>
+  <text x="724" y="353" font-size="9" fill="#f6ad55">URGENT</text>
+  <rect x="706" y="362" width="12" height="10" rx="2" fill="rgba(104,211,145,0.3)"/>
+  <text x="724" y="371" font-size="9" fill="#68d391">ROUTINE</text>
+
+  <!-- Cascade label on left side -->
+  <text x="18" y="350" font-size="9" fill="#63b3ed" transform="rotate(-90,18,350)" letter-spacing="2" opacity="0.5">BAYESIAN CASCADE</text>
+</svg>
