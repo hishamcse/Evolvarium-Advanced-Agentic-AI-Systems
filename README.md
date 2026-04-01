@@ -2,7 +2,7 @@
  
 A hands-on collection of advanced agentic AI systems — each one a fully self-contained product with a distinct architecture, a custom MCP tool server, persistent memory, and a rich Gradio UI. Built with **LangGraph** and **local Ollama models**. No paid API keys required — though agents will produce richer, more nuanced output with paid models.
  
-Every agent uses a **different graph topology** — orchestration, plan-then-execute, parallel fan-out, genetic loops, and adversarial debate. The repo is designed to be a reference for real-world agentic patterns, not just prompt wrappers.
+Every agent uses a **different graph topology** — orchestration, parallel blind evaluation, plan-then-execute, parallel fan-out, genetic loops, and adversarial debate. The repo is designed to be a reference for real-world agentic patterns, not just prompt wrappers.
 
 ---
 
@@ -10,10 +10,11 @@ Every agent uses a **different graph topology** — orchestration, plan-then-exe
 
 | Agent | Architecture | Tech Stack | What It Does |
 |---|---|---|---|
+| [AI Hiring Committee](#ai-hiring-committee) | Parallel Blind Evaluation + Aggregator | LangGraph · MCP (CV + session server) · Ollama · Gradio · JSON persistence | Simulates a real hiring panel: 4 independent evaluators score a candidate in parallel, a chair agent synthesizes the final decision, and users can store, compare (A/B), and summarize candidates across sessions. |
 | [Code Mutation Lab](#code-mutation-lab) | Genetic / Evolutionary Loop | LangGraph · Ollama · Gradio | Code enters as a seed. Each generation, 3 strategy-driven variants are mutated, evaluated across performance, readability, and simplicity, and only the fittest survives to seed the next generation. A full fitness timeline and variant explorer track every decision. |
 | [Code Review Arena](#code-review-arena) | Parallel Fan-out + Aggregator | LangGraph · MCP (lint/AST server) · Ollama · Gradio · JSON persistence | 4 specialist reviewer agents fire in parallel — security, performance, logic, and style — then an aggregator merges all findings into a weighted score, severity-classified issue list, and executive summary. |
-| [Esports Coach Arena](#esports-coach-arena-agent) | Orchestration / Supervisor | LangGraph · MCP (custom esports server) · Ollama · Gradio · JSON persistence | A persistent multi-agent esports war room. A head coach orchestrates 5 specialist agents — meta analyst, opponent scout, draft coach, mechanics coach, and mindset coach — before locking one decisive match plan. Supports Valorant, League of Legends, and CS2. |
 | [Crime Scene Investigator](#crime-scene-investigator) | Adversarial Debate + Jury Vote | LangGraph · MCP (evidence + case tools server) · Ollama · Gradio · JSON persistence | Four AI agents enter the courtroom. A Forensics agent analyses evidence cold. A Prosecutor builds the case for guilt. A Defense agent dismantles it. A Judge weighs both sides and delivers a structured verdict with a confidence score. Noir-style UI with evidence board, debate panel, and case archive. |
+| [Esports Coach Arena](#esports-coach-arena-agent) | Orchestration / Supervisor | LangGraph · MCP (custom esports server) · Ollama · Gradio · JSON persistence | A persistent multi-agent esports war room. A head coach orchestrates 5 specialist agents — meta analyst, opponent scout, draft coach, mechanics coach, and mindset coach — before locking one decisive match plan. Supports Valorant, League of Legends, and CS2. |
 | [Launchpad Strategist](#launchpad-strategist-agent) | Plan-then-Execute | LangGraph · MCP (custom launch server) · Ollama · Gradio · JSON persistence | A startup launch copilot. A planner agent sequences execution, then specialist agents handle market mapping, ICP definition, messaging, and timeline. A critic validates the final brief before it is saved as a persistent launch board. |
 
 ---
@@ -21,16 +22,44 @@ Every agent uses a **different graph topology** — orchestration, plan-then-exe
 ## Architecture patterns used
 
 ```
-Parallel Fan-out + Aggregator  →  Code Review Arena
-Genetic / Evolutionary Loop    →  Code Mutation Lab
-Orchestration / Supervisor     →  Esports Coach Arena
-Plan-then-Execute              →  Launchpad Strategist
-Adversarial Debate + Jury Vote →  Crime Scene Investigator
+Parallel Blind Evaluation + Aggregator  →  AI Hiring Commitee
+Parallel Fan-out + Aggregator           →  Code Review Arena
+Genetic / Evolutionary Loop             →  Code Mutation Lab
+Orchestration / Supervisor              →  Esports Coach Arena
+Plan-then-Execute                       →  Launchpad Strategist
+Adversarial Debate + Jury Vote          →  Crime Scene Investigator
 ```
 
 ---
 
 ## Details & UI for Agents
+
+### AI Hiring Commitee
+
+> **Architecture:** Parallel Blind Evaluation + Chair Aggregation — 4 specialist agents independently evaluate a candidate in parallel (technical, hiring manager, culture, and devil’s advocate). A chair agent synthesizes all perspectives into a final hiring decision, weighted score, and structured reasoning.
+
+<p align="center"><img src="./AI Hiring Commitee/images/hiring_committee_architecture.svg" width="70%" alt="architecture" /> </p>
+
+<img src="./AI Hiring Commitee/images/hire 1.png" width="100%" alt="hire 1" />
+
+<img src="./AI Hiring Commitee/images/hire 2.png" width="100%" alt="hire 2" />
+
+<img src="./AI Hiring Commitee/images/hire 3.png" width="100%" alt="hire 3" />
+
+<img src="./AI Hiring Commitee/images/hire 4.png" width="100%" alt="hire 4" />
+
+<img src="./AI Hiring Commitee/images/hire 5.png" width="100%" alt="hire 5" />
+
+
+**Run:**
+```bash
+cd "AI Hiring Commitee"
+uv run app.py
+```
+
+→ [Full README & architecture](./AI%20Hiring%20Commitee/README.md)
+
+---
 
 ### Code Mutation Lab
 
@@ -77,6 +106,29 @@ uv run app.py
 
 ---
 
+### Crime Scene Investigator
+ 
+> **Architecture:** Adversarial Debate + Jury Vote — four agents argue a criminal case from opposing positions. A Forensics agent analyses evidence with zero bias. A Prosecutor builds the case for guilt. A Defense agent reads the prosecution's argument and systematically dismantles it. A Judge weighs both sides independently and returns a structured JSON verdict with a confidence score, key evidence, and reasonable doubts.
+ 
+<p align="center"><img src="./Crime Scene Investigator/images/csi_architecture.svg" width="70%" alt="arch" /></p>
+
+<img src="./Crime Scene Investigator/images/crime 1.png" width="100%" alt="case file" />
+<img src="./Crime Scene Investigator/images/crime 2.png" width="100%" alt="case file" />
+<img src="./Crime Scene Investigator/images/crime 3.png" width="100%" alt="case file" />
+<img src="./Crime Scene Investigator/images/crime 4.png" width="100%" alt="case file" />
+<img src="./Crime Scene Investigator/images/crime 5.png" width="100%" alt="case file" />
+
+ 
+**Run:**
+```bash
+cd "Crime Scene Investigator"
+uv run app.py
+```
+ 
+→ [Full README & architecture](./Crime%20Scene%20Investigator/README.md)
+ 
+---
+
 ### Esports Coach Arena Agent
 
 > **Architecture:** Orchestration / Supervisor — a head coach sequentially activates 5 specialist sub-agents, each owning a distinct domain of match preparation.
@@ -99,29 +151,6 @@ uv run app.py
 
 → [Full README & architecture](./Esports%20Coach%20Arena%20Agent/README.md)
 
----
-
-### Crime Scene Investigator
- 
-> **Architecture:** Adversarial Debate + Jury Vote — four agents argue a criminal case from opposing positions. A Forensics agent analyses evidence with zero bias. A Prosecutor builds the case for guilt. A Defense agent reads the prosecution's argument and systematically dismantles it. A Judge weighs both sides independently and returns a structured JSON verdict with a confidence score, key evidence, and reasonable doubts.
- 
-<p align="center"><img src="./Crime Scene Investigator/images/csi_architecture.svg" width="70%" alt="arch" /></p>
-
-<img src="./Crime Scene Investigator/images/crime 1.png" width="100%" alt="case file" />
-<img src="./Crime Scene Investigator/images/crime 2.png" width="100%" alt="case file" />
-<img src="./Crime Scene Investigator/images/crime 3.png" width="100%" alt="case file" />
-<img src="./Crime Scene Investigator/images/crime 4.png" width="100%" alt="case file" />
-<img src="./Crime Scene Investigator/images/crime 5.png" width="100%" alt="case file" />
-
- 
-**Run:**
-```bash
-cd "Crime Scene Investigator"
-uv run app.py
-```
- 
-→ [Full README & architecture](./Crime%20Scene%20Investigator/README.md)
- 
 ---
 
 ### Launchpad Strategist Agent
@@ -209,6 +238,20 @@ evolvarium-agent-forge/
 │   ├── memory/                       # Persisted case files
 │   └── README.md
 │
+├── AI Hiring Committee/
+|   ├── config.py
+|   ├── state.py
+|   ├── mcp_server.py            # CV parsing, job spec extraction, session storage
+|   ├── agents/
+|   │   ├── technical_agent.py
+|   │   ├── manager_agent.py
+|   │   ├── culture_agent.py
+|   │   ├── advocate_agent.py
+|   │   └── chair_agent.py
+|   ├── graph.py                 # parallel blind scoring + chair aggregation
+|   ├── app.py                   # committee room Gradio UI
+|   └── README.md
+|
 ├── requirements.txt
 └── README.md
 ```
