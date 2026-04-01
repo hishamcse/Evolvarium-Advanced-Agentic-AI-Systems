@@ -157,7 +157,7 @@ Cascading Bayesian Refinement           →  Medical Differential Engine
  
 > **Architecture:** Cascading Bayesian Refinement — symptoms enter as a signal and flow through five sequential specialist agents, each updating a shared probability distribution before passing it downstream. Unlike parallel fan-out or debate patterns, this is a genuine narrowing probability tree: priors → rare injection → comorbidity LR update → evidence posterior → ranked differential.
  
-<p align="center"><img src="./Medical Differential Engine/images/mde_architecture.svg" width="70%" alt="architecture" /></p>
+<p align="center"><img src="./Medical Differential Engine/images/mde_architecture.svg" width="100%" alt="architecture" /></p>
  
 → [Full README & architecture](./Medical%20Differential%20Engine/README.md)
  
