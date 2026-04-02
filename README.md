@@ -9,7 +9,6 @@
 [![Ollama](https://img.shields.io/badge/Ollama-Local_LLM-000000?style=for-the-badge&logo=ollama&logoColor=white)](https://ollama.ai)
 [![Gradio](https://img.shields.io/badge/Gradio-UI-FF7C00?style=for-the-badge&logo=gradio&logoColor=white)](https://gradio.app)
 [![MCP](https://img.shields.io/badge/MCP-Tool_Servers-6B46C1?style=for-the-badge)](https://modelcontextprotocol.io)
-[![License](https://img.shields.io/badge/License-MIT-68D391?style=for-the-badge)](LICENSE)
 
 <br/>
 
@@ -480,6 +479,13 @@ This isn't a tutorial. It's a reference implementation. The things worth studyin
 **MCP tool server pattern** — every agent with an MCP server exposes domain-specific tools that the graph calls synchronously. The CSI server does evidence tagging and timeline extraction. The hiring server does CV parsing and session management. Tools are not decorators on a chat model — they are callable services the graph controls.
 
 **When to loop vs when to chain** — the Code Mutation Lab loops because each generation needs the output of the previous generation as its seed. Every other agent chains because it only needs one pass. Knowing when a loop adds value versus adds latency is a real engineering decision.
+
+---
+
+## Other Related Works
+
+- https://github.com/hishamcse/agentarium-multi-framework-agents
+- https://github.com/hishamcse/LinkGenius-AI
 
 ---
 
