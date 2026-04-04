@@ -384,6 +384,12 @@ bootstrap → planner → market_mapper → icp_builder
 
 ---
 
+## ⛯ Mind Map
+
+<img src="./NotebookLM%20Mind%20Map.png" alt="mind-map" />
+
+---
+
 ## 📁 Project Structure
 
 ```
