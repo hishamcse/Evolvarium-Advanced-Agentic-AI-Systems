@@ -73,16 +73,16 @@ The entire point of this repo is to show that **topology matters**. Here is how 
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────┐
-│  PATTERN                    GRAPH SHAPE           WHEN TO USE                 │
+│  PATTERN                    GRAPH SHAPE           WHEN TO USE                  │
 ├────────────────────────────────────────────────────────────────────────────────┤
-│  Parallel Blind Eval    [A]─[B]─[C]─[D] → AGG    Independent scoring, no bias│
-│  Parallel Fan-out       [A]─[B]─[C]─[D] → AGG    Parallel specialist review  │
-│  Genetic Loop            SEED → MUT → EVAL → SEL  Iterative optimisation      │
+│  Parallel Blind Eval    [A]─[B]─[C]─[D] → AGG    Independent scoring, no bias  │
+│  Parallel Fan-out       [A]─[B]─[C]─[D] → AGG    Parallel specialist review    │
+│  Genetic Loop            SEED → MUT → EVAL → SEL  Iterative optimisation       │
 │                               ↑____________|                                   │
-│  Adversarial Debate     FOR → AGN → FOR → JUDGE   Structured opposing views   │
-│  Bayesian Cascade       L0→L1→L2→L3→L4→L5        Probability narrowing        │
-│  Orchestration          HEAD→[S1→S2→S3→S4→S5]    Supervisor + specialists    │
-│  Plan-then-Execute      PLAN→[E1→E2→E3→E4]→CRIT  Planned execution order     │
+│  Adversarial Debate     FOR → AGN → FOR → JUDGE   Structured opposing views    │
+│  Bayesian Cascade       L0→L1→L2→L3→L4→L5        Probability narrowing         │
+│  Orchestration          HEAD→[S1→S2→S3→S4→S5]    Supervisor + specialists      │
+│  Plan-then-Execute      PLAN→[E1→E2→E3→E4]→CRIT  Planned execution order       │
 └────────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -381,6 +381,12 @@ bootstrap → planner → market_mapper → icp_builder
 | Launchpad Strategist | Plan + exec chain | — | — | — | — | ✅ |
 
 **Difference between the two fan-out agents:** In AI Hiring Committee, evaluators run in parallel and are completely isolated — no agent sees another's output before forming its own score. In Code Review Arena, agents also run in parallel but the aggregator synthesises all four outputs simultaneously. Same graph shape, different information access pattern.
+
+---
+
+## Video Explanation by NotebookLM
+
+https://github.com/user-attachments/assets/a0cd1b4c-af48-4425-a04d-e474e95bde37
 
 ---
 
