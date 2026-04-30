@@ -504,7 +504,7 @@ This isn't a tutorial. It's a reference implementation. The things worth studyin
 <div align="center">
 
 **Built by [Syed Jarullah Hisham](https://github.com/hishamcse)**
-SDE @ IQVIA · .NET & Agentic AI
+SDE 2 @ IQVIA · .NET & Agentic AI
 
 <br/>
 
