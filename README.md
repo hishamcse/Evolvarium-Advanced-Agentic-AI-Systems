@@ -23,6 +23,12 @@
 
 ---
 
+## Medium Article
+* https://medium.com/@syedjarullah/multi-agent-topologies-for-high-stakes-autonomous-systems-0a67c995a789
+* https://medium.com/@syedjarullah/evolvarium-advanced-agentic-ai-systems-7f98aecb9e91
+
+---
+
 ## What This Is
 
 A hands-on collection of advanced agentic AI systems — every agent uses a **different graph topology** — orchestration, parallel blind evaluation, plan-then-execute, parallel fan-out, genetic loops, adversarial debate, and cascading Bayesian refinement. The repo is designed to be a reference for real-world agentic patterns, not just prompt wrappers.
